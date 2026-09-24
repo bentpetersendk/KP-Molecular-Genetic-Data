@@ -1,0 +1,12 @@
+/* Small readability adjustments for teaching material. */
+
+/* Question and hands-on boxes: slightly larger text than the Material default. */
+.md-typeset .admonition,
+.md-typeset details {
+  font-size: 0.72rem;
+}
+
+/* Keep long checksums and tool IDs from overflowing on narrow screens. */
+.md-typeset code {
+  overflow-wrap: anywhere;
+}

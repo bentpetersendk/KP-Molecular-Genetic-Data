@@ -1,0 +1,1787 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lectures, hands-on exercises, data and Galaxy instructions for the KP – Molecular Genetic Data course.">
+      
+      
+        <meta name="author" content="Bent Petersen">
+      
+      
+        <link rel="canonical" href="https://bentpetersendk.github.io/KP-Molecular-Genetic-Data/exercises/ngs-preprocessing/">
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../data/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>NGS preprocessing and quality control - KP – Molecular Genetic Data</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ngs-preprocessing-and-quality-control" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="KP – Molecular Genetic Data" class="md-header__button md-logo" aria-label="KP – Molecular Genetic Data" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            KP – Molecular Genetic Data
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              NGS preprocessing and quality control
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../lectures/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lectures
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Exercises
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../data/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Data
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../galaxy/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Galaxy
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../resources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Resources
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="KP – Molecular Genetic Data" class="md-nav__button md-logo" aria-label="KP – Molecular Genetic Data" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    KP – Molecular Genetic Data
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Exercises
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_3" id="__nav_3_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Exercises
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NGS preprocessing and quality control
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NGS preprocessing and quality control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p-aeruginosa-single-end-illumina-reads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P. aeruginosa single-end Illumina reads
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="P. aeruginosa single-end Illumina reads">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-get-the-data-into-galaxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Get the data into Galaxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-quality-control-with-fastqc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Quality control with FastQC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2 — Quality control with FastQC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quality-control-is-an-iterative-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality control is an iterative process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic statistics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-plots-and-overrepresented-sequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality plots and overrepresented sequences
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-remove-adapters-using-cutadapt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Remove adapters using Cutadapt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3 — Remove adapters using Cutadapt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inspect-the-cutadapt-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspect the Cutadapt report
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-trim-low-quality-bases-with-trimmomatic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Trim low-quality bases with Trimmomatic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-compare-fastqc-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Compare FastQC reports
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#human-illumina-paired-end-reads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human Illumina paired-end reads
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Human Illumina paired-end reads">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-the-paired-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — The paired collection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-fastqc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Run FastQC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-trim-reads-using-trimmomatic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Trim reads using Trimmomatic
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3 — Trim reads using Trimmomatic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpretation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-coli-454-and-ion-torrent-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E. coli 454 and Ion Torrent data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="E. coli 454 and Ion Torrent data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — The data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-fastqc_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Run FastQC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-exploration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional exploration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#putting-it-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting it together
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-completed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise completed
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../galaxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Galaxy
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#p-aeruginosa-single-end-illumina-reads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        P. aeruginosa single-end Illumina reads
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="P. aeruginosa single-end Illumina reads">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-get-the-data-into-galaxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Get the data into Galaxy
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-quality-control-with-fastqc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Quality control with FastQC
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 2 — Quality control with FastQC">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quality-control-is-an-iterative-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality control is an iterative process
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-statistics" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic statistics
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#quality-plots-and-overrepresented-sequences" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality plots and overrepresented sequences
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-remove-adapters-using-cutadapt" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Remove adapters using Cutadapt
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3 — Remove adapters using Cutadapt">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#inspect-the-cutadapt-report" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspect the Cutadapt report
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-trim-low-quality-bases-with-trimmomatic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4 — Trim low-quality bases with Trimmomatic
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-compare-fastqc-reports" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5 — Compare FastQC reports
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#human-illumina-paired-end-reads" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Human Illumina paired-end reads
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Human Illumina paired-end reads">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-the-paired-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — The paired collection
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-fastqc" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Run FastQC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-trim-reads-using-trimmomatic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Trim reads using Trimmomatic
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Step 3 — Trim reads using Trimmomatic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interpretation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interpretation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#e-coli-454-and-ion-torrent-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        E. coli 454 and Ion Torrent data
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="E. coli 454 and Ion Torrent data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — The data
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-run-fastqc_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Run FastQC
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optional-exploration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Optional exploration
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#putting-it-together" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Putting it together
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exercise-completed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exercise completed
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<!-- Generated by build/build.py in the instructor repository from exercises/ngs-preprocessing/tutorial.md. Do not edit this file here: edit the source and rebuild. -->
+
+<h1 id="ngs-preprocessing-and-quality-control">NGS preprocessing and quality control<a class="headerlink" href="#ngs-preprocessing-and-quality-control" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Overview</p>
+<p><strong>Objectives</strong></p>
+<ul>
+<li>Inspect basic read statistics and quality profiles with FastQC</li>
+<li>Identify an overrepresented sequence and remove it with Cutadapt</li>
+<li>Trim low-quality bases with Trimmomatic and evaluate the effect with FastQC</li>
+<li>Handle paired-end reads as a Galaxy paired collection</li>
+<li>Compare Illumina, 454 and Ion Torrent read-length and quality profiles</li>
+</ul>
+<p><strong>Time:</strong> about 3 hours</p>
+</div>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>Today we will preprocess several types of NGS (Next Generation Sequencing) data. Preprocessing is the first step in almost any downstream analysis and ensures that we are working with high-quality sequencing reads.</p>
+<p>Raw sequencing data often contain issues such as low-quality bases, sequencing adapters, or other technical artifacts. Identifying and correcting these problems improves the reliability of later analyses such as genome assembly, read alignment, and variant detection.</p>
+<p>In this exercise we will work with datasets produced using different sequencing technologies and sequencing strategies.</p>
+<p><strong>Datasets used in this exercise:</strong></p>
+<ol>
+<li><em>Pseudomonas aeruginosa</em> — single-end Illumina reads</li>
+<li>Human — Illumina paired-end reads</li>
+<li><em>Escherichia coli</em> — 454 and Ion Torrent reads</li>
+</ol>
+<h2 id="p-aeruginosa-single-end-illumina-reads"><em>P. aeruginosa</em> single-end Illumina reads<a class="headerlink" href="#p-aeruginosa-single-end-illumina-reads" title="Permanent link">&para;</a></h2>
+<p>Let us start with sequencing reads from a study of <em>Pseudomonas aeruginosa</em>, an opportunistic pathogen that can live in the environment and may infect humans. In humans it often colonizes the lungs, where it can form biofilms.</p>
+<p>The reads come from a strain that infected approximately 40 patients in Denmark over the last 30 years. During this time the strain adapted to the human lung environment.</p>
+<p>In a later alignment exercise (not part of today's exercise) we will compare these reads to the PAO1 reference genome. The PAO1 strain was isolated in 1955 in Australia from a wound and likely originated from the environment.</p>
+<p>By comparing the genomes we can investigate which genes may have been lost during adaptation to the human host, assuming that the PAO1 genome represents a relatively close ancestor.</p>
+<p>Before performing any downstream analysis we must first examine the quality of the sequencing data.</p>
+<h3 id="step-1-get-the-data-into-galaxy">Step 1 — Get the data into Galaxy<a class="headerlink" href="#step-1-get-the-data-into-galaxy" title="Permanent link">&para;</a></h3>
+<p>All the data for today's exercise are collected in one Galaxy history. You will import that history once and use it for all three parts of the exercise.</p>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Import the data</p>
+<ol>
+<li>Log in to <a href="https://usegalaxy.eu">Galaxy Europe</a> (create a free account first if you do not have one). Log in <strong>before</strong> you open the data link: otherwise your copy is not saved in your account.</li>
+<li>Open the shared data history: <a href="https://usegalaxy.eu/u/bentpetersen/h/kp-preprocessing-data">shared data history</a></li>
+<li>Click <strong>Import this history</strong> (top right, above the history).</li>
+<li>In the <strong>Copying History</strong> dialog:<ul>
+<li><em>"Enter a title for the new history"</em>: replace the suggested title with <code>Preprocessing</code></li>
+<li>keep <strong>Copy only the active, non-deleted datasets.</strong> selected</li>
+<li>click <strong>Copy History</strong>.</li>
+</ul>
+</li>
+<li>A blue message confirms <em>"History imported and is now your active history"</em>, but the page still shows the shared history. Click the <strong>Galaxy</strong> logo at the top left (<em>Home</em>) to return to the main page. Your copy <code>Preprocessing</code> is now shown in the history panel on the right. If the panel shows another history, open <strong>Histories</strong> in the left-hand activity bar and switch to <code>Preprocessing</code>.</li>
+<li>Check that the history contains the five files <code>Paeruginosa.fastq.gz</code>, <code>HG00418_A_1.fastq.gz</code>, <code>HG00418_A_2.fastq.gz</code>, <code>GOS1.fastq.gz</code> and <code>iontorrent.fastq.gz</code>, and the paired collection <code>HG00418</code> ("a pair with 2 fastqsanger.gz datasets"). The history also shows 2 hidden datasets: these are the collection's two files and can be ignored.</li>
+<li>Click on <code>Paeruginosa.fastq.gz</code> to expand it. Check that its datatype is <code>fastqsanger.gz</code>. A preview of the first reads is shown below the dataset details.</li>
+</ol>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip: Only if the shared history does not work: upload the files yourself</p>
+<p>If you cannot use the shared history, download the five files listed on the <a href="../../data/#ngs-preprocessing">Data page</a> to your computer and upload them to a new Galaxy history:</p>
+<ol>
+<li>Click <strong>Upload</strong> in the left-hand activity bar.</li>
+<li>Click <strong>Choose local file</strong> and select the files.</li>
+<li>Set <strong>Type (set all)</strong> to <code>fastqsanger.gz</code>.</li>
+<li>Click <strong>Start</strong> and wait until all datasets turn green.</li>
+<li>Build the <code>HG00418</code> paired collection as described in the paired-end part of this exercise.</li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note: What does the datatype fastqsanger.gz mean?</p>
+<p>Galaxy uses the datatype to decide which tools can read a dataset. <code>fastqsanger</code> means a FASTQ file whose quality scores use the "Sanger" encoding, and <code>.gz</code> means it is gzip-compressed. Trimmomatic only accepts inputs whose datatype states the quality encoding, so the datatype must be correct before trimming.</p>
+</div>
+<h3 id="step-2-quality-control-with-fastqc">Step 2 — Quality control with FastQC<a class="headerlink" href="#step-2-quality-control-with-fastqc" title="Permanent link">&para;</a></h3>
+<h4 id="quality-control-is-an-iterative-process">Quality control is an iterative process<a class="headerlink" href="#quality-control-is-an-iterative-process" title="Permanent link">&para;</a></h4>
+<p>Quality control of sequencing data is rarely a single step. Instead, it is typically an <strong>iterative process</strong>:</p>
+<ul>
+<li>Inspect the raw sequencing reads using <strong>FastQC</strong></li>
+<li>Identify potential problems (low-quality bases, adapters, sequence biases)</li>
+<li>Apply trimming or filtering to correct these problems</li>
+<li>Run <strong>FastQC</strong> again to evaluate whether the quality has improved</li>
+</ul>
+<p>This process may be repeated several times until the read quality is acceptable for downstream analyses such as genome assembly, alignment, or variant detection.</p>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Run FastQC on the raw reads</p>
+<ol>
+<li>Run <strong>FastQC</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Ffastqc%2Ffastqc%2F0.74%2Bgalaxy1&amp;version=0.74%2Bgalaxy1">open tool</a>) with the following parameters:<ul>
+<li><em>"Raw read data from your current history"</em>: <code>Paeruginosa.fastq.gz</code> (Galaxy pre-selects the newest dataset, so change it)</li>
+<li>Leave all other parameters at their defaults.</li>
+<li>Galaxy Europe shows a banner recommending the tool <em>Falco</em> instead. Ignore it: this exercise uses FastQC.</li>
+</ul>
+</li>
+<li>Click <strong>Run Tool</strong>.</li>
+<li>FastQC produces two datasets: a <strong>Webpage</strong> (the report) and <strong>RawData</strong> (the same results as text).</li>
+<li>When the job has finished (green), click the eye icon on the <strong>Webpage</strong> dataset to view the report.</li>
+</ol>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip: If a job turns red</p>
+<p>A red dataset means the job failed. See <em>If a job fails</em> on the course's Galaxy page. Temporary server problems are fixed by clicking <strong>Run Job Again</strong> and then <strong>Run Tool</strong>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip: Reading about the tool</p>
+<p>While the job is running, scroll down in the FastQC tool form to read the tool's help text.</p>
+</div>
+<h4 id="basic-statistics">Basic statistics<a class="headerlink" href="#basic-statistics" title="Permanent link">&para;</a></h4>
+<p>The first table in the FastQC report, <strong>Basic Statistics</strong>, summarises the whole file.</p>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q1.</strong> How many reads are there?</p>
+<p><strong>Q2.</strong> How long are the reads?</p>
+<p><strong>Q3.</strong> What is the GC percentage?</p>
+<p><strong>Q4.</strong> Which quality score encoding has been used? What is the corresponding score offset? <em>(This information is needed when trimming reads or performing alignments.)</em></p>
+</div>
+<h4 id="quality-plots-and-overrepresented-sequences">Quality plots and overrepresented sequences<a class="headerlink" href="#quality-plots-and-overrepresented-sequences" title="Permanent link">&para;</a></h4>
+<p>The FastQC report contains several plots summarizing the quality of the sequencing reads. Look at each figure and check whether any warnings or failures are reported (the icons in the <strong>Summary</strong> list at the top of the report: a green tick means pass, an orange exclamation mark means warning, and a red cross means failure).</p>
+<p>The most important plot is <strong>Per base sequence quality</strong>. This plot shows the quality score for each base position as you move from the 5′ end to the 3′ end of the reads. The yellow boxes show the range where the middle 50 % of quality values lie, and the background colours mark good (green), reasonable (orange) and poor (red, below 20) quality.</p>
+<p>For Illumina data it is common to see a drop in quality toward the 3′ end of the reads. These low-quality bases should be removed because they may negatively affect downstream analyses such as genome assembly or SNP detection.</p>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q5.</strong> Look at the <strong>Per base sequence quality</strong> plot.</p>
+<ul>
+<li>How does the quality change from the 5′ end to the 3′ end of the reads?</li>
+<li>At approximately which position do the yellow boxes (the middle 50 % of quality values) start to reach into the red zone (below quality 20)?</li>
+<li>What happens at the last few positions of the reads?</li>
+</ul>
+</div>
+<p>Also examine the <strong>Overrepresented sequences</strong> table. These sequences are often adapters or PCR primers that remain in the reads after sequencing.</p>
+<p>Adapters must be removed because they can:</p>
+<ul>
+<li>cause incorrect overlaps during <strong>de novo assembly</strong></li>
+<li>interfere with read <strong>alignment</strong></li>
+<li>introduce artificial sequence similarity between reads</li>
+</ul>
+<p>In this dataset you should find an overrepresented sequence that FastQC identifies as an Illumina PCR primer (see the <em>Possible Source</em> column).</p>
+<p><strong>Record the sequence exactly as FastQC reports it. You will need it in the next step.</strong></p>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q6.</strong> Which overrepresented sequence does FastQC report? What does the <em>Possible Source</em> column say, and how many times does the sequence occur?</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip: Copying the sequence</p>
+<p>Select the sequence in the FastQC report and copy it (Ctrl+C / Cmd+C). Check that you have copied only the sequence, with no spaces. Cutadapt accepts upper-case sequences only.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Questions: Predict before you trim</p>
+<p><strong>Q6b.</strong> Based on your FastQC report, which problem(s) should be addressed before any downstream analysis? For each problem, name the FastQC panel that shows it. What do you think the overrepresented sequence is, and in which part of the reads would you expect to find it?</p>
+</div>
+<h3 id="step-3-remove-adapters-using-cutadapt">Step 3 — Remove adapters using Cutadapt<a class="headerlink" href="#step-3-remove-adapters-using-cutadapt" title="Permanent link">&para;</a></h3>
+<p>Next we will remove the primer sequence from the reads using the program <strong>Cutadapt</strong>. We will search for it in two ways:</p>
+<ul>
+<li>as a <strong>3′ adapter</strong>, which can occur anywhere in the read, including only partially at the 3′ end. Everything from the adapter to the end of the read is removed.</li>
+<li>as an <strong>anchored 5′ adapter</strong>, which must occur in full at the very beginning of the read. In Cutadapt a 5′ adapter is <em>anchored</em> by writing a <code>^</code> in front of the sequence.</li>
+</ul>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Run Cutadapt</p>
+<ol>
+<li>Run <strong>Cutadapt</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Flparsons%2Fcutadapt%2Fcutadapt%2F5.2%2Bgalaxy2&amp;version=5.2%2Bgalaxy2">open tool</a>) with the following parameters:<ul>
+<li><em>"Single-end or Paired-end reads?"</em>: <code>Single-end</code><ul>
+<li><em>"FASTQ/A file"</em>: <code>Paeruginosa.fastq.gz</code></li>
+<li>In <em>"Read 1 Adapters"</em>:<ul>
+<li><em>"Insert 3' (End) Adapters"</em><ul>
+<li><em>"Source"</em>: <code>Enter custom sequence</code><ul>
+<li><em>"Custom 3' adapter sequence"</em>: the sequence you recorded from FastQC. The box already contains an example value (<code>AATTGGCC</code>): delete it first, so that the box contains only your sequence.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><em>"Insert 5' (Front) Adapters"</em><ul>
+<li><em>"Source"</em>: <code>Enter custom sequence</code><ul>
+<li><em>"Custom 5' adapter sequence"</em>: <code>^</code> followed immediately by the same sequence (this makes the 5′ adapter anchored). Again, delete the example value first.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>In <em>"Adapter Handling Options"</em>: keep the defaults (<em>"Maximum error rate"</em>: <code>0.1</code>, <em>"Minimum overlap length"</em>: <code>3</code>).</li>
+<li>In <em>"Read Filtering Options"</em> (click the section title to expand it):<ul>
+<li><em>"Minimum length (R1)"</em>: <code>50</code></li>
+</ul>
+</li>
+<li><em>"Additional outputs to generate"</em>: tick <code>Report</code></li>
+</ul>
+</li>
+<li>Click <strong>Run Tool</strong>.</li>
+<li>Rename the output <strong>Read 1 Output</strong> to <code>Paeruginosa.cut</code>: click the dataset, click the pencil icon, change <strong>Name</strong>, and click <strong>Save</strong>.</li>
+</ol>
+</div>
+<p>After trimming, reads shorter than 50 nt are discarded (<em>"Minimum length (R1)"</em>). This and the other Cutadapt settings can be changed in the tool form. More information about adapter types can be found in the <a href="https://cutadapt.readthedocs.io/en/stable/guide.html#adapter-types">Cutadapt documentation — Adapter types</a>.</p>
+<h4 id="inspect-the-cutadapt-report">Inspect the Cutadapt report<a class="headerlink" href="#inspect-the-cutadapt-report" title="Permanent link">&para;</a></h4>
+<p>When the job has finished, click the eye icon on the <strong>Report</strong> dataset. The statistics are shown at the top of the report (<code>=== Summary ===</code>), followed by one section per adapter.</p>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q7.</strong> How many reads contained the adapter (<em>Reads with adapters</em>)? Compare this with the number of occurrences FastQC reported. If the numbers differ, suggest why. <em>(Hint: look at the length column in the table "Overview of removed sequences" — how long are most of the removed sequences?)</em></p>
+<p><strong>Q8.</strong> How many reads were removed because they were too short?</p>
+<p><strong>Q7b.</strong> Did the Cutadapt result support your prediction in Q6b? What do these numbers tell you about how much of the original dataset was affected by adapter/primer sequence?</p>
+</div>
+<h3 id="step-4-trim-low-quality-bases-with-trimmomatic">Step 4 — Trim low-quality bases with Trimmomatic<a class="headerlink" href="#step-4-trim-low-quality-bases-with-trimmomatic" title="Permanent link">&para;</a></h3>
+<p>Next we will remove low-quality bases from the ends of the reads using <strong>Trimmomatic</strong>. Trimmomatic applies its trimming operations <strong>in the order you list them</strong>, so add them in the order given below.</p>
+<div class="admonition question">
+<p class="admonition-title">Questions: Predict before you trim</p>
+<p><strong>Q8b.</strong> Look again at the <strong>Per base sequence quality</strong> plot of the raw reads (Q5). Which part of the reads do you expect quality trimming to affect most? What do you expect to happen to the read lengths, and could some reads disappear completely?</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Run Trimmomatic</p>
+<ol>
+<li>Run <strong>Trimmomatic</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fpjbriggs%2Ftrimmomatic%2Ftrimmomatic%2F0.39%2Bgalaxy2&amp;version=0.39%2Bgalaxy2">open tool</a>) with the following parameters:<ul>
+<li><em>"Single-end or paired-end reads?"</em>: <code>Single-end</code><ul>
+<li><em>"Input FASTQ file"</em>: <code>Paeruginosa.cut</code></li>
+</ul>
+</li>
+<li><em>"Perform initial ILLUMINACLIP step?"</em>: <code>no</code></li>
+<li>In <em>"Trimmomatic Operation"</em>, set the first operation and use <strong>Insert Trimmomatic Operation</strong> to add the others:<ol>
+<li><em>"Select Trimmomatic operation to perform"</em>: <code>Cut bases off the start of a read, if below a threshold quality (LEADING)</code><ul>
+<li><em>"Minimum quality required to keep a base"</em>: <code>20</code></li>
+</ul>
+</li>
+<li><code>Cut bases off the end of a read, if below a threshold quality (TRAILING)</code><ul>
+<li><em>"Minimum quality required to keep a base"</em>: <code>20</code></li>
+</ul>
+</li>
+<li><code>Sliding window trimming (SLIDINGWINDOW)</code><ul>
+<li><em>"Number of bases to average across"</em>: <code>4</code></li>
+<li><em>"Average quality required"</em>: <code>20</code></li>
+</ul>
+</li>
+<li><code>Drop reads below a specified length (MINLEN)</code><ul>
+<li><em>"Minimum length of reads to be kept"</em>: <code>36</code></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><em>"Output trimmomatic log messages?"</em>: <code>Yes</code></li>
+</ul>
+</li>
+<li>Click <strong>Run Tool</strong>.</li>
+<li>Rename the trimmed reads (the output named <strong>Trimmomatic on Paeruginosa.cut</strong>, not the log file) to <code>Paeruginosa.cut.trim</code>.</li>
+</ol>
+</div>
+<p>The trimming statistics are in the <strong>log file</strong> output. Click its eye icon and find the line starting with <code>Input Reads:</code>.</p>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q9.</strong> How many reads survived the trimming? How many were dropped?</p>
+<p><strong>Q9b.</strong> Which of the four operations is the one designed to remove whole reads? Using your answer to Q8b, explain why so many more reads were lost here than in the Cutadapt step.</p>
+</div>
+<h3 id="step-5-compare-fastqc-reports">Step 5 — Compare FastQC reports<a class="headerlink" href="#step-5-compare-fastqc-reports" title="Permanent link">&para;</a></h3>
+<p>After trimming, examine how the dataset has changed.</p>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Run FastQC on the trimmed data</p>
+<ol>
+<li>Run <strong>FastQC</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Ffastqc%2Ffastqc%2F0.74%2Bgalaxy1&amp;version=0.74%2Bgalaxy1">open tool</a>):<ul>
+<li><em>"Raw read data from your current history"</em>: select <strong>both</strong> <code>Paeruginosa.cut</code> and <code>Paeruginosa.cut.trim</code>. Click the <em>Multiple datasets</em> button, then click the datasets in the list. Galaxy may already have selected one dataset for you, and clicking a selected dataset removes it again: check that the box shows exactly these two datasets (remove any other with its <strong>×</strong>). Galaxy runs FastQC once for each dataset.</li>
+</ul>
+</li>
+<li>Open the three FastQC <strong>Webpage</strong> reports (raw, <code>Paeruginosa.cut</code> and <code>Paeruginosa.cut.trim</code>). Galaxy names each report after the number of its input in your history: for example, <em>FastQC on dataset 1: Webpage</em> is the report for dataset 1, <code>Paeruginosa.fastq.gz</code>.</li>
+</ol>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip: Viewing reports side by side</p>
+<p>Click the grid icon in the top bar (<em>Enable/Disable Window Manager</em>). Each report you open with the eye icon then appears in its own window, which you can move and resize to arrange the three reports next to each other. When you have finished, close the windows (<strong>×</strong>) and click the grid icon again to switch the Window Manager off; otherwise the windows cover the tool forms.
+Alternatively, open each report in its own browser tab: Ctrl-click (Cmd-click on a Mac) the eye icon.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q10.</strong> Compare the three FastQC reports side by side: <strong>before</strong> (raw reads) and <strong>after</strong> each preprocessing step (adapter-trimmed and quality-trimmed reads). Look at the plots themselves, not only the summary icons.</p>
+<ol>
+<li>How did the <strong>Per base sequence quality</strong> plot change after adapter trimming, and after quality trimming?</li>
+<li>Is the overrepresented sequence still reported after adapter trimming?</li>
+<li>Did the <strong>Per base sequence content</strong> plot change after trimming?</li>
+<li>Which part of the reads still shows an unusual pattern in <strong>Per base sequence content</strong>? Suggest an additional trimming step, and which tool option could perform it.</li>
+<li><strong>Before vs after:</strong> did preprocessing solve the problems you identified in Q6b? For each step, say what improved, what did not materially change, and whether the step had its intended effect.</li>
+</ol>
+</div>
+<h2 id="human-illumina-paired-end-reads">Human Illumina paired-end reads<a class="headerlink" href="#human-illumina-paired-end-reads" title="Permanent link">&para;</a></h2>
+<p>Next we will examine <strong>paired-end Illumina reads</strong>. These reads originate from a ~40× whole-genome sequencing (WGS) dataset of an Asian individual.</p>
+<p>To keep the exercise manageable, the dataset has been filtered so that it only contains reads mapping to <strong>chromosome 21</strong>.</p>
+<p>Each DNA fragment was sequenced from both ends. The file <strong>HG00418_A_1.fastq.gz</strong> contains the <strong>forward (left)</strong> read of each pair, and <strong>HG00418_A_2.fastq.gz</strong> contains the <strong>reverse (right)</strong> read. The <em>n</em>-th read in one file is the mate of the <em>n</em>-th read in the other file. In Galaxy we keep the two files together as a <strong>paired collection</strong>, so that tools always receive the forward and reverse reads together and in the right order.</p>
+<h3 id="step-1-the-paired-collection">Step 1 — The paired collection<a class="headerlink" href="#step-1-the-paired-collection" title="Permanent link">&para;</a></h3>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Check the paired collection</p>
+<ol>
+<li>In your history, click the <code>HG00418</code> collection. It contains two datasets, shown as <strong>forward</strong> (the reads from <code>HG00418_A_1.fastq.gz</code>) and <strong>reverse</strong> (the reads from <code>HG00418_A_2.fastq.gz</code>).</li>
+<li>Click <strong>« History: Preprocessing</strong> at the top of the history panel to return to the full history.</li>
+</ol>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip: If you uploaded the files yourself: build the paired collection</p>
+<ol>
+<li>At the top of the history, click the <strong>Select Items</strong> (checkbox) icon.</li>
+<li>Tick <code>HG00418_A_1.fastq.gz</code> and <code>HG00418_A_2.fastq.gz</code>.</li>
+<li>Open the selection dropdown ("2 of … selected") and choose <strong>Advanced Build List</strong>.</li>
+<li>Under <em>What are you building?</em> choose <strong>List of Paired Datasets</strong> and click <strong>Next</strong>.</li>
+<li>Under <em>Auto Pairing</em>, check that the two files are paired with <code>HG00418_A_1.fastq.gz</code> as the <strong>forward</strong> read and <code>HG00418_A_2.fastq.gz</code> as the <strong>reverse</strong> read, and click <strong>Next</strong>.</li>
+<li>Name the collection <code>HG00418</code> and click <strong>Build</strong>.</li>
+</ol>
+<p>This creates a list containing one pair. You can use it everywhere this exercise says <code>HG00418</code>; Galaxy then runs each tool on the pair inside the list.</p>
+</div>
+<h3 id="step-2-run-fastqc">Step 2 — Run FastQC<a class="headerlink" href="#step-2-run-fastqc" title="Permanent link">&para;</a></h3>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Run FastQC on the paired collection</p>
+<ol>
+<li>Run <strong>FastQC</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Ffastqc%2Ffastqc%2F0.74%2Bgalaxy1&amp;version=0.74%2Bgalaxy1">open tool</a>):<ul>
+<li><em>"Raw read data from your current history"</em>: click the <em>Dataset collection</em> button and select <code>HG00418</code>.</li>
+</ul>
+</li>
+<li>Galaxy runs FastQC separately on the forward and on the reverse reads. The <strong>Webpage</strong> output is a collection with one report for each.</li>
+</ol>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q11.</strong> Use <em>Basic Statistics</em> in the two reports.</p>
+<ol>
+<li>How many reads are in the forward file, and how many in the reverse file?</li>
+<li>How many <strong>read pairs</strong> is that, and how many <strong>individual reads (mates)</strong> in total?</li>
+<li>How long are the reads?</li>
+</ol>
+<p><strong>Q12.</strong> Compare the <strong>Per base sequence quality</strong> plots of the forward and reverse reads. How does the quality change toward the 3′ end, and do the two mates differ?</p>
+<p><strong>Q13.</strong> Does FastQC report any <strong>adapter contamination</strong> (<em>Adapter Content</em>) or <strong>overrepresented sequences</strong> in this dataset? What does that mean for how we should trim these reads?</p>
+</div>
+<h3 id="step-3-trim-reads-using-trimmomatic">Step 3 — Trim reads using Trimmomatic<a class="headerlink" href="#step-3-trim-reads-using-trimmomatic" title="Permanent link">&para;</a></h3>
+<p>Based on your answers above, we will now trim the paired-end reads with <strong>Trimmomatic</strong>, using <strong>the same quality settings as in the previous exercise</strong>.</p>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Run Trimmomatic on the paired collection</p>
+<ol>
+<li>Run <strong>Trimmomatic</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fpjbriggs%2Ftrimmomatic%2Ftrimmomatic%2F0.39%2Bgalaxy2&amp;version=0.39%2Bgalaxy2">open tool</a>) with the following parameters:<ul>
+<li><em>"Single-end or paired-end reads?"</em>: <code>Paired-end (as collection)</code><ul>
+<li><em>"Select FASTQ dataset collection with R1/R2 pair"</em>: <code>HG00418</code></li>
+</ul>
+</li>
+<li><em>"Perform initial ILLUMINACLIP step?"</em>: <code>no</code></li>
+<li><em>"Trimmomatic Operation"</em>: the same four operations, in the same order, as for <em>P. aeruginosa</em>:<ol>
+<li><code>LEADING</code>: <code>20</code></li>
+<li><code>TRAILING</code>: <code>20</code></li>
+<li><code>SLIDINGWINDOW</code>: <em>"Number of bases to average across"</em> <code>4</code>, <em>"Average quality required"</em> <code>20</code></li>
+<li><code>MINLEN</code>: <code>36</code></li>
+</ol>
+</li>
+<li><em>"Output trimmomatic log messages?"</em>: <code>Yes</code></li>
+</ul>
+</li>
+<li>Click <strong>Run Tool</strong>.</li>
+<li>Trimmomatic produces two collections: <strong>paired</strong> (forward + reverse reads whose mate also survived) and <strong>unpaired</strong> (reads whose mate was removed), and a <strong>log file</strong>.</li>
+</ol>
+</div>
+<p>Open the <strong>log file</strong> and find the line starting with <code>Input Read Pairs:</code>.</p>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q14.</strong> Record the trimming statistics:</p>
+<ul>
+<li>Input read pairs</li>
+<li>Both surviving</li>
+<li>Forward only surviving</li>
+<li>Reverse only surviving</li>
+<li>Dropped</li>
+</ul>
+<p><strong>Q14b.</strong> Why can paired-end trimming produce these four categories? In this dataset, more <em>forward only</em> than <em>reverse only</em> reads survived. Which of your FastQC observations (Q12) explains that?</p>
+</div>
+<h4 id="interpretation">Interpretation<a class="headerlink" href="#interpretation" title="Permanent link">&para;</a></h4>
+<p>Unlike the previous dataset, this dataset contains <strong>paired-end reads</strong>. Each DNA fragment was sequenced from both ends, producing a forward and a reverse read.</p>
+<p>During trimming, some reads may fail the quality filters while their partner read remains usable.</p>
+<p>This is why the output contains categories such as:</p>
+<ul>
+<li><strong>Both surviving</strong> — both reads in the pair passed filtering (Galaxy output: the <strong>paired</strong> collection)</li>
+<li><strong>Forward only surviving</strong> — only the forward read passed (Galaxy output: <em>forward</em> in the <strong>unpaired</strong> collection)</li>
+<li><strong>Reverse only surviving</strong> — only the reverse read passed (Galaxy output: <em>reverse</em> in the <strong>unpaired</strong> collection)</li>
+<li><strong>Dropped</strong> — both reads failed filtering</li>
+</ul>
+<p>Reads where only one partner survives are no longer paired and are therefore treated as <strong>single-end reads</strong> in downstream analyses.</p>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q15.</strong> How many reads in total ended up in the <strong>unpaired</strong> collection? Could they be used together with the paired reads in a paired-end alignment?</p>
+</div>
+<h2 id="e-coli-454-and-ion-torrent-data"><em>E. coli</em> 454 and Ion Torrent data<a class="headerlink" href="#e-coli-454-and-ion-torrent-data" title="Permanent link">&para;</a></h2>
+<p>In this final exercise we will examine sequencing data generated using two older sequencing technologies: <strong>454 pyrosequencing</strong> and <strong>Ion Torrent</strong>.</p>
+<p>The reads originate from the German <em>E. coli</em> outbreak in 2011 associated with contaminated cucumbers and sprouts.</p>
+<p>Note that these datasets were <strong>not generated using Illumina sequencing</strong>. In Galaxy they still have the datatype <code>fastqsanger.gz</code>, because the datatype describes the file format and quality encoding, not the sequencing technology. Keep track of which technology produced which file by giving the datasets clear names.</p>
+<h3 id="step-1-the-data">Step 1 — The data<a class="headerlink" href="#step-1-the-data" title="Permanent link">&para;</a></h3>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Name the datasets</p>
+<ol>
+<li>Find <code>GOS1.fastq.gz</code> (the <strong>454</strong> dataset) and <code>iontorrent.fastq.gz</code> (the <strong>Ion Torrent</strong> dataset) in your history.</li>
+<li>Optional: rename them to <code>GOS1 (454)</code> and <code>iontorrent (Ion Torrent)</code> so that the FastQC reports are easy to tell apart.</li>
+</ol>
+</div>
+<h3 id="step-2-run-fastqc_1">Step 2 — Run FastQC<a class="headerlink" href="#step-2-run-fastqc_1" title="Permanent link">&para;</a></h3>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Run FastQC on both datasets</p>
+<ol>
+<li>Run <strong>FastQC</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Ffastqc%2Ffastqc%2F0.74%2Bgalaxy1&amp;version=0.74%2Bgalaxy1">open tool</a>):<ul>
+<li><em>"Raw read data from your current history"</em>: select both <code>GOS1.fastq.gz</code> and <code>iontorrent.fastq.gz</code> (<em>Multiple datasets</em>). As before, check that the box shows exactly these two datasets.</li>
+</ul>
+</li>
+<li>Open both <strong>Webpage</strong> reports.</li>
+</ol>
+</div>
+<p>Pay particular attention to <em>Basic Statistics</em>, the <strong>Per base sequence quality</strong> plot and the <strong>Sequence Length Distribution</strong>.</p>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q16.</strong> For each dataset, record from <em>Basic Statistics</em>:</p>
+<ul>
+<li>number of reads</li>
+<li>read length (range)</li>
+<li>GC percentage</li>
+</ul>
+<p><strong>Q17.</strong> Open the <strong>Per base sequence quality</strong>, <strong>Per sequence quality scores</strong> and <strong>Sequence Length Distribution</strong> plots of both reports side by side. What differences do you observe in read length, in quality, and in how quality deteriorates along the reads?</p>
+<p><strong>Q18.</strong> Compare all three technologies you have seen today (Illumina, 454, Ion Torrent). Which produce reads of a fixed length? Summarise, in one sentence each, the characteristic read length and quality profile of each technology. Based on the plots, which dataset would you expect to lose the most reads if trimmed with the same settings as the Illumina data (average quality 20), and why? <em>(You can test your prediction in the optional exploration, Q19.)</em></p>
+</div>
+<h3 id="optional-exploration">Optional exploration<a class="headerlink" href="#optional-exploration" title="Permanent link">&para;</a></h3>
+<p>Try trimming the 454 and Ion Torrent reads to remove low-quality bases with <strong>Trimmomatic</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fpjbriggs%2Ftrimmomatic%2Ftrimmomatic%2F0.39%2Bgalaxy2&amp;version=0.39%2Bgalaxy2">open tool</a>) (<em>"Single-end"</em>, the same four operations as before), and then run <strong>FastQC</strong> again to evaluate the effect of trimming.</p>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q19.</strong> <em>(Optional)</em> How many reads survive trimming for each technology? Explain what you observe.</p>
+</div>
+<h3 id="putting-it-together">Putting it together<a class="headerlink" href="#putting-it-together" title="Permanent link">&para;</a></h3>
+<p>Quality control is a loop: <strong>observe → predict → process → observe again → compare → explain</strong>.</p>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q20.</strong> You receive a new sequencing dataset tomorrow. Before any downstream analysis:</p>
+<ol>
+<li>What would you inspect first, and in which FastQC panels?</li>
+<li>How would you decide whether trimming is necessary, and which kind?</li>
+<li>What would you check after preprocessing?</li>
+</ol>
+</div>
+<h2 id="exercise-completed">Exercise completed<a class="headerlink" href="#exercise-completed" title="Permanent link">&para;</a></h2>
+<p><strong>Congratulations — you have now completed the data preprocessing exercises.</strong></p>
+<p>You have explored sequencing data generated using multiple technologies and learned how to:</p>
+<ul>
+<li>inspect sequencing read statistics</li>
+<li>evaluate read quality using FastQC</li>
+<li>remove adapters and primers</li>
+<li>trim low-quality bases</li>
+<li>compare different sequencing technologies</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="Previous: Exercises">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Exercises
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../data/" class="md-footer__link md-footer__link--next" aria-label="Next: Data">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Data
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Original course material © 2026 Bent Petersen and the course teachers, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Third-party material, linked resources, software and datasets keep their own licences and terms. See <a href="https://github.com/bentpetersendk/KP-Molecular-Genetic-Data/blob/main/LICENSE.md">licensing</a>.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
