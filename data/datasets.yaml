@@ -1,0 +1,68 @@
+# Public dataset manifest for the course.
+#
+# This file is PUBLIC. It must contain only information students may see before
+# doing the exercises: no read counts, read lengths, GC content, quality values
+# or other results (those are exercise answers).
+#
+# The FASTQ files themselves are NOT stored in Git.
+# Rendered on the Data page by hooks/datasets_table.py; the exercise pages link here.
+
+datasets:
+
+- id: ngs-preprocessing
+  title: NGS preprocessing and quality control
+  exercise: exercises/ngs-preprocessing/index.md
+  # Shared Galaxy Europe history containing exactly these files (and the HG00418
+  # paired collection). Empty until the instructors share it.
+  galaxy_history_url: "https://usegalaxy.eu/u/bentpetersen/h/kp-preprocessing-data"
+  # Long-term archive (e.g. a Zenodo DOI). Empty until redistribution rights are confirmed.
+  archive_url: ""
+  redistribution: >-
+    Redistribution terms are being confirmed by the instructors. Use the files
+    for this course only.
+  files:
+  - filename: Paeruginosa.fastq.gz
+    description: "Pseudomonas aeruginosa, clinical isolate from a Danish transmissible lineage"
+    technology: Illumina
+    layout: single-end
+    galaxy_datatype: fastqsanger.gz
+    size_bytes: 73353088
+    sha256: 6a8107c285d404bc6b887e5151bee91f0f2039ec72fac21b18b39f95fc5f8fb0
+    download_url: https://drive.proton.me/urls/W027KF8G1M#cDuAoLdtPqmx
+  - filename: HG00418_A_1.fastq.gz
+    description: "Human (1000 Genomes sample HG00418), reads mapping to chromosome 21 - forward reads"
+    technology: Illumina
+    layout: paired-end (forward)
+    galaxy_datatype: fastqsanger.gz
+    size_bytes: 88081894
+    sha256: 8791ff8e02ef9b73f06331a6277b6de6ed1b49272840af5f0f896f377ffcfb39
+    download_url: https://drive.proton.me/urls/YKC92S4D0C#eqraXk4sZ4eA
+  - filename: HG00418_A_2.fastq.gz
+    description: "Human (1000 Genomes sample HG00418), reads mapping to chromosome 21 - reverse reads"
+    technology: Illumina
+    layout: paired-end (reverse)
+    galaxy_datatype: fastqsanger.gz
+    size_bytes: 88075426
+    sha256: a9b802798dd50fb4ee38f0a94d34fdb59d6fd5db521a0a4672716fe3fc342f67
+    download_url: https://drive.proton.me/urls/24QRXA643G#shiK9tVAuDRl
+  - filename: GOS1.fastq.gz
+    description: "Escherichia coli, German outbreak 2011"
+    technology: 454
+    layout: single-end
+    galaxy_datatype: fastqsanger.gz
+    size_bytes: 46336149
+    sha256: 08e4d5a727ae9416fa1bbbf03d8466fe30802cb8a1a0b9f2f20492a87875f4d5
+    download_url: https://drive.proton.me/urls/V0WAE9774C#lFyqJi4gbQzr
+  - filename: iontorrent.fastq.gz
+    description: "Escherichia coli, German outbreak 2011"
+    technology: Ion Torrent
+    layout: single-end
+    galaxy_datatype: fastqsanger.gz
+    size_bytes: 101319315
+    sha256: 7aa88bd0f288d6f1811c7a73b61dd2f3dae2887bc0635035abdc73c1da6eb03d
+    download_url: https://drive.proton.me/urls/6JZA4FPCHG#9JhpAa4WumD6
+  collections:
+  - name: HG00418
+    type: paired
+    forward: HG00418_A_1.fastq.gz
+    reverse: HG00418_A_2.fastq.gz

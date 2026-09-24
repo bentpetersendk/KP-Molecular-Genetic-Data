@@ -1,0 +1,3 @@
+# Course website build. Pinned: MkDocs 2.0 is not compatible with the Material theme.
+mkdocs==1.6.1
+mkdocs-material==9.7.7

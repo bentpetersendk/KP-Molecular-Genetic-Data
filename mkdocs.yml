@@ -1,0 +1,75 @@
+# Course website configuration (MkDocs + Material theme).
+# Build locally:   mkdocs build --strict      Preview:   mkdocs serve
+# See README.md and CONTRIBUTING.md.
+
+site_name: 2026-09-29 KP Course
+site_description: Lectures, hands-on exercises, data and Galaxy instructions for the KP course taught on 29 September 2026.
+site_author: Bent Petersen
+site_url: https://bentpetersendk.github.io/2026-09-29-KP-Course/
+copyright: 'Original course material © 2026 Bent Petersen and the course teachers, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Third-party material, linked resources, software and datasets keep their own licences and terms. See <a href="https://github.com/bentpetersendk/2026-09-29-KP-Course/blob/main/LICENSE.md">licensing</a>.'
+
+docs_dir: content
+site_dir: site
+use_directory_urls: true
+strict: true
+
+nav:
+  - Home: index.md
+  - Lectures: lectures/index.md
+  - Exercises:
+      - exercises/index.md
+      - NGS preprocessing and quality control: exercises/ngs-preprocessing/index.md
+  - Data: data/index.md
+  - Galaxy: galaxy/index.md
+  - Resources: resources/index.md
+
+theme:
+  name: material
+  language: en
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - toc.follow
+    - search.highlight
+    - content.code.copy
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue grey
+      accent: indigo
+      toggle: {icon: material/weather-night, name: Switch to dark mode}
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue grey
+      accent: indigo
+      toggle: {icon: material/weather-sunny, name: Switch to light mode}
+
+extra:
+  generator: false
+
+extra_css:
+  - assets/extra.css
+
+hooks:
+  - hooks/datasets_table.py
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - def_list
+  - pymdownx.details
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+
+validation:
+  omitted_files: warn
+  absolute_links: warn
+  unrecognized_links: warn
+  anchors: warn
+

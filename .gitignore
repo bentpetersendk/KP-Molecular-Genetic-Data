@@ -1,0 +1,16 @@
+# Built website (published with `mkdocs gh-deploy`, never committed on main)
+site/
+
+# Local environments
+.venv/
+venv/
+__pycache__/
+.DS_Store
+
+# Never commit data or credentials
+*.fastq
+*.fastq.gz
+*.fq
+*.fq.gz
+.env
+*.key
