@@ -40,8 +40,9 @@ def _render(ds: dict, page_url_depth: int) -> str:
     out.append("**How to get the data**")
     out.append("")
     if ds.get("galaxy_history_url"):
+        extra = ", and the paired collection" if ds.get("collections") else ""
         out.append(f"- **Recommended:** import the shared Galaxy history: <{ds['galaxy_history_url']}>. "
-                   "It already contains every file with the correct datatype, and the paired collection.")
+                   f"It already contains every file with the correct datatype{extra}.")
     else:
         out.append("- **Recommended:** a shared Galaxy history with all files will be linked here before the course.")
     if ds.get("archive_url"):
