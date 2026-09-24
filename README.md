@@ -26,9 +26,9 @@ mkdocs.yml                 site configuration and navigation
 content/                   website pages (Markdown)
   index.md                 Home
   lectures/                lecture list (+ files/ for slide PDFs)
-  exercises/               exercise list + one folder per exercise (generated pages)
+  exercises/               Practicals list + one folder per practical (generated pages)
   data/                    Data page (tables rendered from data/datasets.yaml)
-  galaxy/                  getting started with Galaxy Europe
+  galaxy/                  Getting started: Galaxy Europe and the course histories
   resources/               links to documentation and further reading
 data/datasets.yaml         public dataset manifest: files, checksums, sizes, links (no FASTQ files in Git)
 hooks/datasets_table.py    renders data/datasets.yaml into the Data page

@@ -15,12 +15,12 @@ strict: true
 
 nav:
   - Home: index.md
+  - Getting started: galaxy/index.md
   - Lectures: lectures/index.md
-  - Exercises:
+  - Practicals:
       - exercises/index.md
       - NGS preprocessing and quality control: exercises/ngs-preprocessing/index.md
   - Data: data/index.md
-  - Galaxy: galaxy/index.md
   - Resources: resources/index.md
 
 theme:

@@ -6,7 +6,7 @@ This guide is for the course teachers. It covers everything needed to update the
 
 | I want to… | Edit | Repository |
 |---|---|---|
-| change the home page, Galaxy help or resources | `content/index.md`, `content/galaxy/index.md`, `content/resources/index.md` | public (this one) |
+| change the home page, Getting started (Galaxy help) or resources | `content/index.md`, `content/galaxy/index.md`, `content/resources/index.md` | public (this one) |
 | add or update a lecture | `content/lectures/index.md` (+ PDF in `content/lectures/files/`) | public |
 | change an exercise's text or questions | `exercises/<name>/tutorial.md` | **instructor (private)** |
 | change an answer / expected result | `exercises/<name>/tutorial.md` (solution box) and `exercises/<name>/validation.yaml` | **instructor (private)** |
@@ -33,7 +33,7 @@ Exercises are written in the **instructor repository**, because the source conta
 1. Edit or add `exercises/<name>/tutorial.md` there. Use the Galaxy Training Network box format (`hands_on`, `question` with a nested `solution`, `tip`, `comment`), and put every answer inside a solution box.
 2. In the instructor repository, run `python build/build.py` and then `python tests/test_answer_leak.py`.
    The build writes `content/exercises/<name>/index.md` into this repository, but only if the leak check passes.
-3. Add a new exercise to `nav:` in `mkdocs.yml` and to `content/exercises/index.md`.
+3. Add a new practical to `nav:` in `mkdocs.yml` (under **Practicals**) and to `content/exercises/index.md` (the Practicals page); add its slides and references under its own heading on the Lectures and Resources pages.
 4. Build this site locally, check it, then commit here.
 
 ## Data

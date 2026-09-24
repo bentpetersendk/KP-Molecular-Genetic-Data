@@ -1,5 +1,5 @@
 ---
-title: Galaxy
+title: Getting started
 ---
 
 # Getting started with Galaxy Europe
