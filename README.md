@@ -1,8 +1,8 @@
-# 2026-09-29 KP Course
+# KP – Molecular Genetic Data
 
 Student edition: the public course website with lectures, hands-on exercises, data and Galaxy instructions.
 
-**Course website:** <https://bentpetersendk.github.io/2026-09-29-KP-Course/>
+**Course website:** <https://bentpetersendk.github.io/KP-Molecular-Genetic-Data/>
 
 - **Website:** built with [MkDocs](https://www.mkdocs.org/) and the Material theme, published on GitHub Pages.
 - **Maintainers:** Bent Petersen <!-- and co-teachers: add names -->

@@ -2,11 +2,11 @@
 # Build locally:   mkdocs build --strict      Preview:   mkdocs serve
 # See README.md and CONTRIBUTING.md.
 
-site_name: 2026-09-29 KP Course
-site_description: Lectures, hands-on exercises, data and Galaxy instructions for the KP course taught on 29 September 2026.
+site_name: KP – Molecular Genetic Data
+site_description: Lectures, hands-on exercises, data and Galaxy instructions for the KP – Molecular Genetic Data course.
 site_author: Bent Petersen
-site_url: https://bentpetersendk.github.io/2026-09-29-KP-Course/
-copyright: 'Original course material © 2026 Bent Petersen and the course teachers, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Third-party material, linked resources, software and datasets keep their own licences and terms. See <a href="https://github.com/bentpetersendk/2026-09-29-KP-Course/blob/main/LICENSE.md">licensing</a>.'
+site_url: https://bentpetersendk.github.io/KP-Molecular-Genetic-Data/
+copyright: 'Original course material © 2026 Bent Petersen and the course teachers, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Third-party material, linked resources, software and datasets keep their own licences and terms. See <a href="https://github.com/bentpetersendk/KP-Molecular-Genetic-Data/blob/main/LICENSE.md">licensing</a>.'
 
 docs_dir: content
 site_dir: site

@@ -2,11 +2,11 @@
 title: Home
 ---
 
-# 2026-09-29 KP Course
+# KP – Molecular Genetic Data
 
 <!-- TODO(instructors): add the course code, semester and a short course description. -->
 
-This site is the starting point for the KP course on 29 September 2026. It collects the lectures, the hands-on exercise and the data.
+This site is the starting point for the KP – Molecular Genetic Data course. It collects the lectures, the hands-on exercise and the data.
 The exercises run in your web browser on [Galaxy Europe](https://usegalaxy.eu), so you do not need to install any software.
 
 <div class="grid cards" markdown>

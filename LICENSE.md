@@ -4,7 +4,7 @@
 
 The original teaching material written for this course is © 2026 Bent Petersen and the course teachers. It is licensed under the [Creative Commons Attribution 4.0 International licence (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/); the full legal text is in [`LICENSE`](LICENSE). This covers the text of the website pages, exercises and instructions in this repository.
 
-When you reuse it, please credit "2026-09-29 KP Course, Bent Petersen and the course teachers" and link to <https://github.com/bentpetersendk/2026-09-29-KP-Course>.
+When you reuse it, please credit "KP – Molecular Genetic Data, Bent Petersen and the course teachers" and link to <https://github.com/bentpetersendk/KP-Molecular-Genetic-Data>.
 
 ## What is *not* covered by CC BY 4.0
 
