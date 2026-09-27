@@ -20,6 +20,7 @@ nav:
   - Practicals:
       - exercises/index.md
       - NGS preprocessing and quality control: exercises/ngs-preprocessing/index.md
+      - The Unix command line: exercises/unix-command-line/index.md
   - Data: data/index.md
   - Resources: resources/index.md
 

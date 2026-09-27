@@ -29,6 +29,8 @@ def _load(config) -> dict:
 
 
 def _size(n: int) -> str:
+    if n < 1e6:
+        return f"{max(1, round(n / 1e3))} kB"
     return f"{n / 1e6:.0f} MB"
 
 
@@ -47,8 +49,11 @@ def _render(ds: dict, page_url_depth: int) -> str:
         out.append("- **Recommended:** a shared Galaxy history with all files will be linked here before the course.")
     if ds.get("archive_url"):
         out.append(f"- Archived copy: <{ds['archive_url']}>")
-    out.append("- Direct download of the individual files: links in the table below. "
-               "Upload them to Galaxy with the datatype shown.")
+    if any(f.get("download_url") for f in ds["files"]):
+        out.append("- Direct download of the individual files: links in the table below. "
+                   "Upload them to Galaxy with the datatype shown.")
+    else:
+        out.append("- The files are available through the shared Galaxy history only.")
     out.append("")
     out.append("| File | Description | Technology | Layout | Galaxy datatype | Size |")
     out.append("|---|---|---|---|---|---|")

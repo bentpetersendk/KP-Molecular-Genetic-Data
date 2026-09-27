@@ -66,3 +66,29 @@ datasets:
     type: paired
     forward: HG00418_A_1.fastq.gz
     reverse: HG00418_A_2.fastq.gz
+
+- id: unix-command-line
+  title: The Unix command line
+  exercise: exercises/unix-command-line/index.md
+  # Shared Galaxy Europe history containing exactly these two files.
+  galaxy_history_url: "https://usegalaxy.eu/u/bentpetersen/h/kp-unix-command-line-data"
+  archive_url: ""
+  redistribution: >-
+    Data from UniProtKB/Swiss-Prot (UniProt Consortium, release 2026_03), licensed
+    under CC BY 4.0 (https://www.uniprot.org/help/license). Selected and reformatted
+    for teaching: a panel of human disease genes and their orthologs in other vertebrates.
+  files:
+  - filename: proteins.tsv
+    description: "Reviewed UniProtKB/Swiss-Prot entries for a panel of human disease genes and their orthologs in other vertebrates (accession, entry name, gene name, organism, protein length)"
+    technology: UniProtKB/Swiss-Prot table export
+    layout: tab-separated table with a header line
+    galaxy_datatype: tabular
+    size_bytes: 4437
+    sha256: fb49c8b42f995b4615413516f24b27e4a540ecce7fa0e7d346f8a63c442e3c7e
+  - filename: proteins.fasta
+    description: "Protein sequences of the same entries, with UniProt FASTA headers"
+    technology: UniProtKB/Swiss-Prot FASTA export
+    layout: FASTA
+    galaxy_datatype: fasta
+    size_bytes: 97479
+    sha256: cfd3c3f805b17257539a25da2c71b036e788989ae020d7116f7f2e18d2594b43

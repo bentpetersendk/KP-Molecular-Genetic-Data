@@ -11,3 +11,5 @@ If you download the files yourself, upload them to Galaxy with the datatype list
 ## Datasets by practical
 
 <!-- datasets: ngs-preprocessing -->
+
+<!-- datasets: unix-command-line -->

@@ -38,4 +38,22 @@ New to Galaxy? Read [Getting started](../galaxy/index.md) before the first pract
 
 </div>
 
+## The Unix command line
+
+<div class="grid cards" markdown>
+
+-   **The Unix command line for molecular genetic data**
+
+    The shell, files and paths, inspecting and searching biological text files, redirection, and connecting small tools with pipes.
+
+    [Open the slides (Gamma)](https://gamma.app/docs/2g3maim8xyow2nn){ .md-button }
+
+-   **Practical**
+
+    The Unix command line, in a terminal in Galaxy Europe.
+
+    [Open the practical](../exercises/unix-command-line/index.md){ .md-button .md-button--primary }
+
+</div>
+
 <!-- Maintainers: add further slide decks as cards in the matching section (live Gamma links); add a section per practical. Deck 02 is added once it is ready for students. -->

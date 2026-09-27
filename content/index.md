@@ -36,6 +36,7 @@ The practicals run in your web browser on [Galaxy Europe](https://usegalaxy.eu),
 ## Practicals
 
 - [NGS preprocessing and quality control](exercises/ngs-preprocessing/index.md): read quality control, adapter removal and quality trimming in Galaxy.
+- [The Unix command line](exercises/unix-command-line/index.md): files, directories and text tools in a Unix terminal in Galaxy, from single commands to pipelines on protein data.
 
 The [Practicals](exercises/index.md) page lists every practical with its topics and duration.
 
