@@ -1,0 +1,1782 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Lectures, hands-on exercises, data and Galaxy instructions for the KP – Molecular Genetic Data course.">
+      
+      
+        <meta name="author" content="Bent Petersen">
+      
+      
+        <link rel="canonical" href="https://bentpetersendk.github.io/KP-Molecular-Genetic-Data/exercises/unix-command-line/">
+      
+      
+        <link rel="prev" href="../ngs-preprocessing/">
+      
+      
+        <link rel="next" href="../../data/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>The Unix command line - KP – Molecular Genetic Data</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#the-unix-command-line" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="KP – Molecular Genetic Data" class="md-header__button md-logo" aria-label="KP – Molecular Genetic Data" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            KP – Molecular Genetic Data
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              The Unix command line
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../galaxy/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Getting started
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../lectures/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Lectures
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Practicals
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../data/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Data
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../resources/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Resources
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="KP – Molecular Genetic Data" class="md-nav__button md-logo" aria-label="KP – Molecular Genetic Data" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    KP – Molecular Genetic Data
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../galaxy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../lectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Practicals
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Practicals
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ngs-preprocessing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    NGS preprocessing and quality control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Unix command line
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Unix command line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-a-terminal-in-galaxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get a terminal in Galaxy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Get a terminal in Galaxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-import-the-data-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Import the data history
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-start-jupyterlab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Start JupyterLab
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-open-a-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Open a terminal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-where-am-i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1 — Where am I?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 1 — Where am I?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#make-a-working-directory-and-get-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Make a working directory and get the data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-files-and-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2 — Files and directories
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-look-inside-the-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3 — Look inside the files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-4-columns-sorting-and-counting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4 — Columns, sorting and counting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-5-search-with-grep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 5 — Search with grep
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-6-save-output-and" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 6 — Save output: &gt; and &gt;&gt;
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-7-pipes-connect-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 7 — Pipes: connect commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-8-challenge-a-biological-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 8 — Challenge: a biological question
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keep-a-record-and-finish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep a record and finish
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../data/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../resources/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resources
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Introduction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-a-terminal-in-galaxy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get a terminal in Galaxy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Get a terminal in Galaxy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-import-the-data-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1 — Import the data history
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-start-jupyterlab" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2 — Start JupyterLab
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-open-a-terminal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3 — Open a terminal
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-1-where-am-i" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 1 — Where am I?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Part 1 — Where am I?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#make-a-working-directory-and-get-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Make a working directory and get the data
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-2-files-and-directories" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 2 — Files and directories
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-3-look-inside-the-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 3 — Look inside the files
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-4-columns-sorting-and-counting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 4 — Columns, sorting and counting
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-5-search-with-grep" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 5 — Search with grep
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-6-save-output-and" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 6 — Save output: &gt; and &gt;&gt;
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-7-pipes-connect-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 7 — Pipes: connect commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#part-8-challenge-a-biological-question" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Part 8 — Challenge: a biological question
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#keep-a-record-and-finish" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep a record and finish
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<!-- Generated by build/build.py in the instructor repository from exercises/unix-command-line/tutorial.md. Do not edit this file here: edit the source and rebuild. -->
+
+<h1 id="the-unix-command-line">The Unix command line<a class="headerlink" href="#the-unix-command-line" title="Permanent link">&para;</a></h1>
+<div class="admonition abstract">
+<p class="admonition-title">Overview</p>
+<p><strong>Objectives</strong></p>
+<ul>
+<li>Open a Unix terminal in Galaxy Europe and find out where you are in the file system</li>
+<li>Create, copy, move and delete files and directories, using relative and absolute paths</li>
+<li>Inspect a table and a FASTA file with head, tail, less and wc</li>
+<li>Select columns with cut, combine them with paste, and sort text and numbers with sort</li>
+<li>Count identical lines with sort and uniq</li>
+<li>Search text with grep and simple patterns</li>
+<li>Save output with &gt; and &gt;&gt;, and connect commands with pipes (|)</li>
+<li>Answer a biological question with a pipeline that you compose yourself</li>
+</ul>
+<p><strong>Time:</strong> about 3 hours</p>
+</div>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>Most molecular genetic data are plain text: sequence files (FASTA, FASTQ), alignments (SAM), variant files (VCF), annotation tables and the result tables of almost every analysis tool. The Unix command line gives you small, fast programs that each do one thing with text: show the first lines, count lines, pick out columns, sort, or search. Connected to each other, they answer real questions about data in seconds, and the same commands work on your laptop, on a Galaxy server and on a large compute cluster.</p>
+<p>In this practical you work in a real Unix terminal inside Galaxy Europe. You will:</p>
+<ul>
+<li>find your way around the file system;</li>
+<li>create, copy, move and delete files and directories;</li>
+<li>inspect a protein table and a FASTA file;</li>
+<li>cut, sort, count and search them;</li>
+<li>connect commands with pipes to answer a biological question.</li>
+</ul>
+<p>The slides for this practical are on the Lectures page.</p>
+<p><strong>Data.</strong> You will work with two files exported from <a href="https://www.uniprot.org">UniProtKB/Swiss-Prot</a>, the manually reviewed part of the UniProt protein database:</p>
+<ul>
+<li><code>proteins.tsv</code>: a table of protein entries for a panel of well-known human disease genes (such as <em>TP53</em>, <em>BRCA1</em>, <em>CFTR</em> and <em>HBB</em>) and the corresponding proteins in other vertebrates;</li>
+<li><code>proteins.fasta</code>: the amino-acid sequences of the same proteins.</li>
+</ul>
+<h2 id="get-a-terminal-in-galaxy">Get a terminal in Galaxy<a class="headerlink" href="#get-a-terminal-in-galaxy" title="Permanent link">&para;</a></h2>
+<p>You need a registered Galaxy Europe account for this practical: the terminal runs in an <strong>Interactive Tool</strong>, and Galaxy Europe starts Interactive Tools only for users who are logged in.</p>
+<h3 id="step-1-import-the-data-history">Step 1 — Import the data history<a class="headerlink" href="#step-1-import-the-data-history" title="Permanent link">&para;</a></h3>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Import the data</p>
+<ol>
+<li>Log in to <a href="https://usegalaxy.eu">Galaxy Europe</a> (create a free account first if you do not have one). Log in <strong>before</strong> you open the data link: otherwise your copy is not saved in your account.</li>
+<li>Open the shared data history: <a href="https://usegalaxy.eu/u/bentpetersen/h/kp-unix-command-line-data">shared data history</a></li>
+<li>Click <strong>Import this history</strong> (top right, above the history).</li>
+<li>In the <strong>Copying History</strong> dialog:<ul>
+<li><em>"Enter a title for the new history"</em>: replace the suggested title with <code>Unix practical</code></li>
+<li>keep <strong>Copy only the active, non-deleted datasets.</strong> selected</li>
+<li>click <strong>Copy History</strong>.</li>
+</ul>
+</li>
+<li>A blue message confirms <em>"History imported and is now your active history"</em>, but the page still shows the shared history. Click the <strong>Galaxy</strong> logo at the top left (<em>Home</em>) to return to the main page. Your copy <code>Unix practical</code> is now shown in the history panel on the right. If the panel shows another history, open <strong>Histories</strong> in the left-hand activity bar and switch to <code>Unix practical</code>.</li>
+<li>Check that the history contains the two datasets <code>proteins.tsv</code> and <code>proteins.fasta</code>.</li>
+</ol>
+</div>
+<h3 id="step-2-start-jupyterlab">Step 2 — Start JupyterLab<a class="headerlink" href="#step-2-start-jupyterlab" title="Permanent link">&para;</a></h3>
+<p>JupyterLab is a web-based working environment. Galaxy Europe runs it for you as an Interactive Tool, and it includes a Unix terminal.</p>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Start the JupyterLab Interactive Tool</p>
+<ol>
+<li>Check that <code>Unix practical</code> is your current history (history panel on the right). JupyterLab can only fetch data from the history it was started from.</li>
+<li>Click <strong>Tools</strong> in the activity bar, type <code>JupyterLab</code> in the tool search box, and click <strong>Interactive JupyterLab Notebook</strong>.</li>
+<li>Keep the setting <em>"Do you already have a notebook?"</em> at <strong>Start with a fresh notebook</strong>, and click <strong>Run Tool</strong>.</li>
+<li>Galaxy shows <em>"Waiting for InteractiveTool result view(s) to become available"</em>, and three new items appear in your history: <strong>JupyTool output collection</strong>, <strong>Executed JupyTool Notebook</strong> and <strong>Interactive JupyterLab Notebook</strong>. They do not turn green while JupyterLab is running. This is normal.</li>
+<li>Click <strong>Interactive Tools</strong> in the activity bar. Under <em>Active Interactive Tools</em> you see <strong>JupyTool interactive tool</strong> with the status <em>Running</em>. This usually takes less than a minute. If it is still not listed as <em>Running</em> after five minutes, click <strong>Run Tool</strong> again (step 3), and tell a teacher if that does not help either.</li>
+<li>Click the ↗ icon (<strong>Open in new tab</strong>) next to it. JupyterLab opens in a new browser tab. (Clicking the name itself opens JupyterLab inside the Galaxy page, where it has less room.)</li>
+</ol>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning: Not logged in?</p>
+<p>If you start the tool without being logged in, Galaxy still shows a green message, but the new history items turn red and no Interactive Tool appears. Log in, import the data history again, and start the tool again.</p>
+</div>
+<h3 id="step-3-open-a-terminal">Step 3 — Open a terminal<a class="headerlink" href="#step-3-open-a-terminal" title="Permanent link">&para;</a></h3>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Open a terminal in JupyterLab</p>
+<ol>
+<li>In JupyterLab, click <strong>File → New → Terminal</strong>. (You can also click the <strong>Terminal</strong> tile in the <em>Launcher</em>, under <em>Other</em>.) If JupyterLab asks <em>"Would you like to get notified about official Jupyter news?"</em>, click <strong>No</strong>.</li>
+<li>
+<p>A terminal tab opens with a line like this, followed by a blinking cursor:</p>
+<div class="highlight"><pre><span></span><code>(base) jovyan@4aa74bb55da1:/data/jwd07/pulsar_staging/113469050/working/jupyter$
+</code></pre></div>
+<p>This is the <strong>prompt</strong>. It shows your user name (<code>jovyan</code>), the name of the computer (a random code) and the directory you are in, and it ends with <code>$</code>. The shell is waiting for a command. <code>(base)</code> is the name of a software environment; you can ignore it.</p>
+</li>
+</ol>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip: Typing, pasting and stopping</p>
+<ul>
+<li>Type a command and press <strong>Enter</strong> to run it. Commands, options and file names are <strong>case-sensitive</strong>, and the spaces between them matter.</li>
+<li>Type the commands yourself where you can: that is how you learn them. To paste a command, <strong>right-click → Paste</strong> in the terminal (on a Mac, <strong>Cmd+V</strong> also works). Copy text from the terminal by selecting it and choosing <strong>right-click → Copy</strong>.</li>
+<li><strong>Ctrl+C</strong> in the terminal does <strong>not</strong> copy. It stops the command that is running and gives you a new prompt. Use it whenever the terminal seems stuck, for example after an unfinished quote (the prompt changes to <code>&gt;</code>).</li>
+<li>Press <strong>Tab</strong> to complete a file or command name, and the <strong>up arrow</strong> to get your previous commands back.</li>
+</ul>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning: This terminal is temporary</p>
+<p>Your terminal runs in a temporary environment that exists only while the Interactive Tool is running.</p>
+<ul>
+<li>Closing the browser tab, or the terminal tab, does <strong>not</strong> stop it: reopen it from <strong>Interactive Tools</strong> in Galaxy. In JupyterLab, <strong>File → New → Terminal</strong> gives you a new terminal in the same environment, with your files still there.</li>
+<li>When the tool is <strong>stopped</strong> (the red square in <strong>Interactive Tools</strong>, or <strong>File → Shut Down</strong> in JupyterLab), every file you made in the terminal is deleted. The red square stops the tool at once, without asking. Only the files you send to your Galaxy history with <code>put</code> (see the end of the practical) are kept.</li>
+</ul>
+<p>Do the practical in one sitting if you can. If you have to start again, the tip <em>Starting again</em> at the end of Part 1 gets you back to work in a minute.</p>
+</div>
+<h2 id="part-1-where-am-i">Part 1 — Where am I?<a class="headerlink" href="#part-1-where-am-i" title="Permanent link">&para;</a></h2>
+<p>Every command line has the same parts: the <strong>command</strong> (the program to run), then <strong>options</strong> that change what it does (usually starting with <code>-</code>), then <strong>arguments</strong> (usually the files it works on), all separated by spaces. In <code>ls -l /import</code> the command is <code>ls</code>, the option is <code>-l</code> and the argument is <code>/import</code>.</p>
+<p>The files on a Unix computer are organised in a tree of <strong>directories</strong> (folders). The top of the tree is <code>/</code>, the <strong>root</strong>. You are always <em>in</em> one directory, the <strong>current working directory</strong>.</p>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Look around</p>
+<ol>
+<li>
+<p>Print the current working directory:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">pwd</span>
+</code></pre></div>
+</li>
+<li>
+<p>Go to your <strong>home directory</strong> with <code>cd</code> (change directory) without an argument, and print the working directory again:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span>
+<span class="nb">pwd</span>
+</code></pre></div>
+</li>
+<li>
+<p>List the contents of the directory, first briefly and then in the long format:</p>
+<div class="highlight"><pre><span></span><code>ls
+ls<span class="w"> </span>-l
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q1.</strong> What does <code>pwd</code> print right after you open the terminal, and what does it print after <code>cd</code>? Which of the two is your home directory?</p>
+</div>
+<h3 id="make-a-working-directory-and-get-the-data">Make a working directory and get the data<a class="headerlink" href="#make-a-working-directory-and-get-the-data" title="Permanent link">&para;</a></h3>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Create a directory for this practical</p>
+<ol>
+<li>
+<p>Make a new directory, move into it, and check where you are:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>unix-practical
+<span class="nb">cd</span><span class="w"> </span>unix-practical
+<span class="nb">pwd</span>
+</code></pre></div>
+</li>
+<li>
+<p>Fetch the two data files from your Galaxy history with the command <code>get</code>. It is not a standard Unix command: this Galaxy environment provides it, and it copies a dataset from the history JupyterLab was started from. Each <code>get</code> prints where it saved the file:</p>
+<div class="highlight"><pre><span></span><code>get<span class="w"> </span>-i<span class="w"> </span>proteins.tsv<span class="w"> </span>-t<span class="w"> </span>name
+get<span class="w"> </span>-i<span class="w"> </span>proteins.fasta<span class="w"> </span>-t<span class="w"> </span>name
+</code></pre></div>
+<p>Run each <code>get</code> only once. If you run it again for the same file, it prints a long error message that ends with <code>KeyError: 'extension'</code>. The file is still there: continue with the next step.</p>
+</li>
+<li>
+<p><code>get</code> saves the files in the directory <code>/import</code>. Look at them there, then copy both to your current directory, and list it:</p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span>/import
+cp<span class="w"> </span>/import/proteins.tsv<span class="w"> </span>/import/proteins.fasta<span class="w"> </span>.
+ls<span class="w"> </span>-l
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note: Absolute and relative paths</p>
+<p>A <strong>path</strong> says where a file is. A path that starts with <code>/</code> is <strong>absolute</strong>: it starts at the root, and it means the same thing wherever you are. Any other path is <strong>relative</strong>: it starts in your current directory. Three short names are useful:</p>
+<ul>
+<li><code>.</code> means "the current directory";</li>
+<li><code>..</code> means "the directory one level up";</li>
+<li><code>~</code> means "my home directory".</li>
+</ul>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q2.</strong> Is <code>/import/proteins.tsv</code> an absolute or a relative path? What does the <code>.</code> at the end of the <code>cp</code> command stand for? Write the absolute path of your own copy of <code>proteins.tsv</code>.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip: Starting again</p>
+<p>If your Interactive Tool was stopped, start JupyterLab again from <code>Unix practical</code> (Step 2), open a terminal (Step 3), and run:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>~/unix-practical
+<span class="nb">cd</span><span class="w"> </span>~/unix-practical
+get<span class="w"> </span>-i<span class="w"> </span>proteins.tsv<span class="w"> </span>-t<span class="w"> </span>name
+get<span class="w"> </span>-i<span class="w"> </span>proteins.fasta<span class="w"> </span>-t<span class="w"> </span>name
+cp<span class="w"> </span>/import/proteins.tsv<span class="w"> </span>/import/proteins.fasta<span class="w"> </span>.
+</code></pre></div>
+<p>If you had already reached Part 4, also repeat its first step (<code>tail -n +2 …</code>).</p>
+</div>
+<h2 id="part-2-files-and-directories">Part 2 — Files and directories<a class="headerlink" href="#part-2-files-and-directories" title="Permanent link">&para;</a></h2>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Copy and compare</p>
+<ol>
+<li>
+<p>Make a copy of the table, and compare the copy with the original using <code>diff</code>:</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>proteins.tsv<span class="w"> </span>backup.tsv
+ls
+diff<span class="w"> </span>proteins.tsv<span class="w"> </span>backup.tsv
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q3.</strong> What does <code>diff</code> print, and what does that tell you about the two files?</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Overwrite a file (on purpose)</p>
+<ol>
+<li>
+<p>Now copy the FASTA file onto <code>backup.tsv</code>, and look at the first three lines of <code>backup.tsv</code>:</p>
+<div class="highlight"><pre><span></span><code>cp<span class="w"> </span>proteins.fasta<span class="w"> </span>backup.tsv
+head<span class="w"> </span>-n<span class="w"> </span><span class="m">3</span><span class="w"> </span>backup.tsv
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q4.</strong> What is in <code>backup.tsv</code> now? Did <code>cp</code> warn you before it replaced the old contents?</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning: No undo, no trash bin</p>
+<p><code>cp</code> and <code>mv</code> replace an existing file with the same name without asking, and so does <code>&gt;</code> (Part 4). <code>rm</code> deletes a file permanently: there is no trash bin to restore it from, here or on any other Unix system. Before you replace or delete something, check what it is (<code>ls</code>, <code>head</code>).</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Delete a file, and work with directories</p>
+<ol>
+<li>
+<p>Delete <code>backup.tsv</code>, and check that it is gone:</p>
+<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>backup.tsv
+ls
+</code></pre></div>
+</li>
+<li>
+<p>Make a directory <code>test</code>, copy both data files into it, and list it:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span><span class="nb">test</span>
+cp<span class="w"> </span>proteins.tsv<span class="w"> </span>proteins.fasta<span class="w"> </span>test/
+ls<span class="w"> </span><span class="nb">test</span>
+</code></pre></div>
+</li>
+<li>
+<p>Make a second directory <code>data</code>, <strong>move</strong> the two files from <code>test</code> into it, and remove the now empty <code>test</code> with <code>rmdir</code>. The <code>*</code> is a <strong>wildcard</strong>: <code>test/*</code> means "every file in <code>test</code>". Before you use a wildcard, check what it matches with <code>ls</code>:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>data
+ls<span class="w"> </span>test/*
+mv<span class="w"> </span>test/*<span class="w"> </span>data/
+ls<span class="w"> </span><span class="nb">test</span><span class="w"> </span>data
+rmdir<span class="w"> </span><span class="nb">test</span>
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q5.</strong> Now try to remove the directory <code>data</code> in the same way, with <code>rmdir data</code>. What happens, and why?</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Directories inside directories</p>
+<ol>
+<li>
+<p>Make three directories inside each other in one command. <code>-p</code> tells <code>mkdir</code> to create the parent directories as well:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>nested/level2/level3
+</code></pre></div>
+</li>
+<li>
+<p>Move <code>data</code> into the innermost directory, and list it there. Use <strong>Tab</strong> to complete the directory names instead of typing them in full:</p>
+<div class="highlight"><pre><span></span><code>mv<span class="w"> </span>data<span class="w"> </span>nested/level2/level3/
+ls<span class="w"> </span>nested/level2/level3/data
+</code></pre></div>
+</li>
+<li>
+<p>Before you delete anything, look at everything inside <code>nested</code> with <code>ls -R</code> (recursive):</p>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-R<span class="w"> </span>nested
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q6.</strong> <code>rm -r nested</code> would delete <code>nested</code> and everything inside it. According to <code>ls -R</code>, which files and which directories would it delete?</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Delete the practice directories</p>
+<ol>
+<li>
+<p>Delete <code>nested</code> with everything in it, and check what is left. Your two original data files in <code>unix-practical</code> are not affected:</p>
+<div class="highlight"><pre><span></span><code>rm<span class="w"> </span>-r<span class="w"> </span>nested
+ls
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning: rm -r</p>
+<p><code>rm -r</code> deletes a directory and everything below it, at once and for good. Only use it on a directory you have just inspected, like here. Never combine it with a wildcard you have not checked. The temporary Galaxy environment does not make this safe: on your own computer or on a server, the same command deletes your real work.</p>
+</div>
+<h2 id="part-3-look-inside-the-files">Part 3 — Look inside the files<a class="headerlink" href="#part-3-look-inside-the-files" title="Permanent link">&para;</a></h2>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: The protein table</p>
+<ol>
+<li>
+<p>Show the first 10 lines of the table with <code>head</code>, then only the first 3 lines, and then the last 3 lines with <code>tail</code>:</p>
+<div class="highlight"><pre><span></span><code>head<span class="w"> </span>proteins.tsv
+head<span class="w"> </span>-n<span class="w"> </span><span class="m">3</span><span class="w"> </span>proteins.tsv
+tail<span class="w"> </span>-n<span class="w"> </span><span class="m">3</span><span class="w"> </span>proteins.tsv
+</code></pre></div>
+</li>
+<li>
+<p>Browse the whole table with <code>less</code>. Use the <strong>space bar</strong> to go down a page, <strong>b</strong> to go back, and type <code>/DMD</code> and <strong>Enter</strong> to search for the text <code>DMD</code>. Press <strong>q</strong> to quit <code>less</code> and get your prompt back:</p>
+<div class="highlight"><pre><span></span><code>less<span class="w"> </span>proteins.tsv
+</code></pre></div>
+</li>
+<li>
+<p>Count the lines, words and characters with <code>wc</code>, then only the lines with <code>wc -l</code>:</p>
+<div class="highlight"><pre><span></span><code>wc<span class="w"> </span>proteins.tsv
+wc<span class="w"> </span>-l<span class="w"> </span>proteins.tsv
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q7.</strong> What are the five columns of <code>proteins.tsv</code>? What does one line after the first one describe?</p>
+<p><strong>Q8.</strong> How many proteins are described in <code>proteins.tsv</code>? Be careful: look again at what is on the first line.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: The FASTA file</p>
+<ol>
+<li>
+<p>Show the first 4 lines of the FASTA file, and browse it with <code>less</code> (quit with <strong>q</strong>):</p>
+<div class="highlight"><pre><span></span><code>head<span class="w"> </span>-n<span class="w"> </span><span class="m">4</span><span class="w"> </span>proteins.fasta
+less<span class="w"> </span>proteins.fasta
+</code></pre></div>
+</li>
+<li>
+<p>Count its lines:</p>
+<div class="highlight"><pre><span></span><code>wc<span class="w"> </span>-l<span class="w"> </span>proteins.fasta
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q9.</strong> A FASTA record starts with a <strong>header line</strong> that begins with <code>&gt;</code>, followed by one or more lines of sequence. Look at the first header line. Which protein is it, from which organism, and what is its gene name? What is <code>P02649</code>?</p>
+<p><strong>Q10.</strong> How many lines does <code>proteins.fasta</code> have? Can you tell from the number of lines how many sequences the file contains? Why, or why not?</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note: FASTA and FASTQ</p>
+<p>In a FASTQ file (sequencing reads, see the NGS practical) every read takes exactly <strong>four</strong> lines: a header starting with <code>@</code>, the sequence, a <code>+</code> line and the quality line. There you <em>can</em> get the number of reads by dividing the number of lines by four. In a FASTA file you cannot.</p>
+</div>
+<h2 id="part-4-columns-sorting-and-counting">Part 4 — Columns, sorting and counting<a class="headerlink" href="#part-4-columns-sorting-and-counting" title="Permanent link">&para;</a></h2>
+<p>The table has a header line. Before you sort and count, make a copy without it. <code>tail -n +2</code> prints a file <strong>from line 2 onwards</strong>, and <code>&gt;</code> sends the output into a new file instead of to the screen.</p>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Remove the header</p>
+<ol>
+<li>
+<p>Save the table without its header line, and check the new file:</p>
+<div class="highlight"><pre><span></span><code>tail<span class="w"> </span>-n<span class="w"> </span>+2<span class="w"> </span>proteins.tsv<span class="w"> </span>&gt;<span class="w"> </span>proteins_data.tsv
+head<span class="w"> </span>-n<span class="w"> </span><span class="m">3</span><span class="w"> </span>proteins_data.tsv
+wc<span class="w"> </span>-l<span class="w"> </span>proteins_data.tsv
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note: Redirection with &gt;</p>
+<p>Normally a command writes its output to the screen. <code>command &gt; file</code> writes it into <code>file</code> instead. If <code>file</code> does not exist, it is created; if it exists, its old contents are <strong>replaced</strong> without warning. Never redirect into the file you are reading from: <code>sort proteins_data.tsv &gt; proteins_data.tsv</code> leaves you with an empty file.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Select columns with cut, and combine them with paste</p>
+<ol>
+<li>
+<p><code>cut -f</code> selects columns (fields) from a tab-separated file. Save the entry names (column 2) and the lengths (column 5) in two files:</p>
+<div class="highlight"><pre><span></span><code>cut<span class="w"> </span>-f2<span class="w"> </span>proteins_data.tsv<span class="w"> </span>&gt;<span class="w"> </span>names.txt
+cut<span class="w"> </span>-f5<span class="w"> </span>proteins_data.tsv<span class="w"> </span>&gt;<span class="w"> </span>lengths.txt
+head<span class="w"> </span>-n<span class="w"> </span><span class="m">3</span><span class="w"> </span>names.txt<span class="w"> </span>lengths.txt
+</code></pre></div>
+</li>
+<li>
+<p><code>paste</code> puts files side by side, line by line. Combine the two files, lengths first:</p>
+<div class="highlight"><pre><span></span><code>paste<span class="w"> </span>lengths.txt<span class="w"> </span>names.txt<span class="w"> </span>&gt;<span class="w"> </span>length_name.tsv
+head<span class="w"> </span>-n<span class="w"> </span><span class="m">3</span><span class="w"> </span>length_name.tsv
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q11.</strong> What does <code>length_name.tsv</code> contain, and in which order are the columns? Now run <code>cut -f2,5 proteins_data.tsv</code> (scroll up to see the first lines). In which order does <code>cut</code> print the two columns?</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Sort</p>
+<ol>
+<li>
+<p>Sort <code>length_name.tsv</code> in two ways, and look at the last three lines of each result:</p>
+<div class="highlight"><pre><span></span><code>sort<span class="w"> </span>length_name.tsv<span class="w"> </span>&gt;<span class="w"> </span>sorted_text.tsv
+tail<span class="w"> </span>-n<span class="w"> </span><span class="m">3</span><span class="w"> </span>sorted_text.tsv
+sort<span class="w"> </span>-n<span class="w"> </span>length_name.tsv<span class="w"> </span>&gt;<span class="w"> </span>sorted_num.tsv
+tail<span class="w"> </span>-n<span class="w"> </span><span class="m">3</span><span class="w"> </span>sorted_num.tsv
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q12.</strong> Which three proteins in the table are the longest? The two <code>sort</code> commands disagree: which one gives the right answer, and why does the other one give a different result?</p>
+<p><strong>Q13.</strong> Which protein in the table is the shortest? What is this protein?</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Ask the command for help</p>
+<ol>
+<li>
+<p>Most commands describe their options when you add <code>--help</code>. Read the help of <code>sort</code>, scrolling up if necessary:</p>
+<div class="highlight"><pre><span></span><code>sort<span class="w"> </span>--help
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note: Getting help</p>
+<p>On most Unix systems <code>man sort</code> shows the full manual page. This Galaxy environment is a minimal system without manual pages: <code>man</code> only prints a message. Use <code>--help</code> here, or look up the command online (for example in the GNU Coreutils manual on the Resources page).</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q14.</strong> Which option makes <code>sort</code> reverse its order? Use it to write a command that lists the proteins in <code>length_name.tsv</code> from the longest to the shortest.</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Count identical lines with uniq</p>
+<ol>
+<li>
+<p>Save the organism column, and count identical lines with <code>uniq -c</code>:</p>
+<div class="highlight"><pre><span></span><code>cut<span class="w"> </span>-f4<span class="w"> </span>proteins_data.tsv<span class="w"> </span>&gt;<span class="w"> </span>organisms.txt
+uniq<span class="w"> </span>-c<span class="w"> </span>organisms.txt
+</code></pre></div>
+</li>
+<li>
+<p>Now sort the organisms first, and count again:</p>
+<div class="highlight"><pre><span></span><code>sort<span class="w"> </span>organisms.txt<span class="w"> </span>&gt;<span class="w"> </span>organisms_sorted.txt
+uniq<span class="w"> </span>-c<span class="w"> </span>organisms_sorted.txt
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q15.</strong> How many different species are there in the table, and which species has the most entries? Why does <code>uniq -c</code> on the unsorted file give a different, much longer result?</p>
+</div>
+<h2 id="part-5-search-with-grep">Part 5 — Search with grep<a class="headerlink" href="#part-5-search-with-grep" title="Permanent link">&para;</a></h2>
+<p><code>grep</code> prints the lines that contain a pattern. Put the pattern in single quotes, so that the shell passes spaces and special characters on to <code>grep</code> unchanged.</p>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Find lines</p>
+<ol>
+<li>
+<p>Print the human entries, count them with <code>-c</code>, and save all the <em>other</em> lines with <code>-v</code> (invert):</p>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s1">'Homo sapiens'</span><span class="w"> </span>proteins_data.tsv
+grep<span class="w"> </span>-c<span class="w"> </span><span class="s1">'Homo sapiens'</span><span class="w"> </span>proteins_data.tsv
+grep<span class="w"> </span>-v<span class="w"> </span><span class="s1">'Homo sapiens'</span><span class="w"> </span>proteins_data.tsv<span class="w"> </span>&gt;<span class="w"> </span>non_human.tsv
+wc<span class="w"> </span>-l<span class="w"> </span>non_human.tsv
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note: Patterns</p>
+<p><code>grep</code> patterns are <strong>regular expressions</strong>. Most characters simply match themselves, but a few have a special meaning:</p>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Matches</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>^</code></td>
+<td>the start of a line: <code>^&gt;</code> is a <code>&gt;</code> at the start of a line</td>
+</tr>
+<tr>
+<td><code>$</code></td>
+<td>the end of a line: <code>SV=1$</code> is <code>SV=1</code> at the end of a line</td>
+</tr>
+<tr>
+<td><code>.</code></td>
+<td>any single character</td>
+</tr>
+<tr>
+<td><code>[12]</code></td>
+<td>one character: <code>1</code> or <code>2</code></td>
+</tr>
+</tbody>
+</table>
+<p>The option <code>-i</code> ignores the difference between upper and lower case.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q16.</strong> How many sequences are in <code>proteins.fasta</code>? Use <code>grep</code>, and remember what the first line of every FASTA record looks like. Does the number agree with the table?</p>
+<p><strong>Q17.</strong> Count the p53 sequences with <code>grep -c 'GN=TP53' proteins.fasta</code>. Now look at the table: how many entries have an entry name starting with <code>P53_</code>? Why do the two numbers differ, and how do you make <code>grep</code> find all p53 sequences?</p>
+</div>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Character classes</p>
+<ol>
+<li>
+<p>Compare these two searches for BRCA1 and BRCA2 (the space after the pattern makes sure that longer gene names starting with the same letters are not matched):</p>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s1">'GN=BRCA[12] '</span><span class="w"> </span>proteins.fasta
+grep<span class="w"> </span><span class="s1">'GN=BRCA. '</span><span class="w"> </span>proteins.fasta
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q18.</strong> What do <code>[12]</code> and <code>.</code> mean in these two patterns? Do the two commands find the same lines here? How many BRCA1 and BRCA2 sequences are there in <code>proteins.fasta</code> if you also accept lower-case gene names?</p>
+</div>
+<h2 id="part-6-save-output-and">Part 6 — Save output: &gt; and &gt;&gt;<a class="headerlink" href="#part-6-save-output-and" title="Permanent link">&para;</a></h2>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Collect lines from two searches in one file</p>
+<ol>
+<li>
+<p>Save the human entries in a new file, then <strong>append</strong> the mouse entries to the same file with <code>&gt;&gt;</code>, and count the lines:</p>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s1">'_HUMAN'</span><span class="w"> </span>proteins_data.tsv<span class="w"> </span>&gt;<span class="w"> </span>selected.tsv
+grep<span class="w"> </span><span class="s1">'_MOUSE'</span><span class="w"> </span>proteins_data.tsv<span class="w"> </span>&gt;&gt;<span class="w"> </span>selected.tsv
+wc<span class="w"> </span>-l<span class="w"> </span>selected.tsv
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q19.</strong> How many lines does <code>selected.tsv</code> have, and where do they come from? What would the file contain if you had used <code>&gt;</code> instead of <code>&gt;&gt;</code> in the second command?</p>
+</div>
+<h2 id="part-7-pipes-connect-commands">Part 7 — Pipes: connect commands<a class="headerlink" href="#part-7-pipes-connect-commands" title="Permanent link">&para;</a></h2>
+<p>In Part 4 you needed three commands and two extra files (<code>organisms.txt</code>, <code>organisms_sorted.txt</code>) to count the species. A <strong>pipe</strong>, written <code>|</code>, does this without files: it sends the output of the command on its left directly into the command on its right. You can chain as many commands as you like.</p>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: First pipes</p>
+<ol>
+<li>
+<p>Show only the first three FASTA header lines, and count the human entries by piping <code>grep</code> into <code>wc -l</code>:</p>
+<div class="highlight"><pre><span></span><code>grep<span class="w"> </span><span class="s1">'^&gt;'</span><span class="w"> </span>proteins.fasta<span class="w"> </span><span class="p">|</span><span class="w"> </span>head<span class="w"> </span>-n<span class="w"> </span><span class="m">3</span>
+grep<span class="w"> </span><span class="s1">'Homo sapiens'</span><span class="w"> </span>proteins_data.tsv<span class="w"> </span><span class="p">|</span><span class="w"> </span>wc<span class="w"> </span>-l
+</code></pre></div>
+</li>
+</ol>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q20.</strong> Write the species count from Part 4 as <strong>one</strong> pipeline, starting from <code>proteins_data.tsv</code> and without any extra files. Add a last step so that the species with the most entries is at the bottom.</p>
+<p><strong>Q21.</strong> Write one pipeline that prints the entry names and lengths of the three longest proteins, starting from <code>proteins_data.tsv</code> and without making any files. Hint: <code>sort</code> can sort on one column: <code>-k2,2n</code> sorts numerically on column 2.</p>
+</div>
+<h2 id="part-8-challenge-a-biological-question">Part 8 — Challenge: a biological question<a class="headerlink" href="#part-8-challenge-a-biological-question" title="Permanent link">&para;</a></h2>
+<p>The same gene in different species is called an <strong>ortholog</strong>. An entry name such as <code>P53_HUMAN</code> has two parts, separated by <code>_</code>: the protein (<code>P53</code>) and the species (<code>HUMAN</code>, <code>MOUSE</code>, <code>RAT</code>, …).</p>
+<p>How completely are the orthologs of these disease genes covered by reviewed Swiss-Prot entries? Answer the two questions below with pipelines you compose yourself. Start from <code>proteins_data.tsv</code> or from <code>proteins.fasta</code>, as you prefer.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip: One new trick</p>
+<p><code>cut</code> normally splits lines at tab characters. With <code>-d</code> you choose another separator: <code>cut -d_ -f1</code> keeps the part of each line before the first <code>_</code>, and <code>cut -d_ -f2</code> the part after it.</p>
+</div>
+<div class="admonition question">
+<p class="admonition-title">Questions</p>
+<p><strong>Q22.</strong> Which protein in the panel has a reviewed entry in the largest number of species, and in how many? Answer with one pipeline.</p>
+<p><strong>Q23.</strong> <em>CFTR</em> is the gene mutated in cystic fibrosis. In how many species of the panel does <code>proteins.fasta</code> contain a CFTR sequence, and which species of the panel has none?</p>
+</div>
+<h2 id="keep-a-record-and-finish">Keep a record and finish<a class="headerlink" href="#keep-a-record-and-finish" title="Permanent link">&para;</a></h2>
+<div class="admonition example">
+<p class="admonition-title">Hands-on: Save your commands to your Galaxy history</p>
+<ol>
+<li>
+<p><code>history</code> lists the commands you typed in this terminal. Save the list in a file, and send the file to your Galaxy history with <code>put</code>, the partner of <code>get</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">history</span><span class="w"> </span>&gt;<span class="w"> </span>my_commands.txt
+put<span class="w"> </span>-p<span class="w"> </span>my_commands.txt
+</code></pre></div>
+<p>After a few seconds <code>my_commands.txt</code> appears in your <code>Unix practical</code> history, where it stays after the terminal is gone. You can send any other file the same way.</p>
+</li>
+<li>
+<p>When you are done, stop the Interactive Tool: <strong>Interactive Tools</strong> in the activity bar → the red square (<strong>Stop this interactive tool</strong>) next to <strong>JupyTool interactive tool</strong>. This deletes the temporary environment and frees the computer for others.</p>
+</li>
+</ol>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note: What next?</p>
+<p>The same commands work on any Unix system: macOS, Linux, or the compute servers where large sequencing projects are analysed, which you usually reach with <code>ssh</code>. Beyond this practical, <code>sed</code> and <code>awk</code> edit and compute on text, and shell scripts save a pipeline so that you can run it again on new data.</p>
+</div>
+<h2 id="summary">Summary<a class="headerlink" href="#summary" title="Permanent link">&para;</a></h2>
+<p>You opened a Unix shell in Galaxy Europe, found your way around the file system, and created, copied, moved and deleted files and directories. You inspected a protein table and a FASTA file, cut out columns, sorted text and numbers, counted identical lines, and searched with patterns. Finally, you connected small commands with pipes to answer biological questions without writing any intermediate files: the core idea of working on the command line.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../ngs-preprocessing/" class="md-footer__link md-footer__link--prev" aria-label="Previous: NGS preprocessing and quality control">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                NGS preprocessing and quality control
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../data/" class="md-footer__link md-footer__link--next" aria-label="Next: Data">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Data
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Original course material © 2026 Bent Petersen and the course teachers, licensed under <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Third-party material, linked resources, software and datasets keep their own licences and terms. See <a href="https://github.com/bentpetersendk/KP-Molecular-Genetic-Data/blob/main/LICENSE.md">licensing</a>.
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "navigation.indexes", "toc.follow", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://bentpetersendk.github.io/KP-Molecular-Genetic-Data/data/">
       
       
-        <link rel="prev" href="../exercises/ngs-preprocessing/">
+        <link rel="prev" href="../exercises/unix-command-line/">
       
       
         <link rel="next" href="../resources/">
@@ -457,6 +457,8 @@
       
         
       
+        
+      
     
     
     
@@ -526,6 +528,34 @@
     
   
     NGS preprocessing and quality control
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercises/unix-command-line/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    The Unix command line
   
 
     
@@ -635,6 +665,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#unix-command-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Unix command line
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -718,6 +759,17 @@
     <span class="md-ellipsis">
       
         NGS preprocessing and quality control
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unix-command-line" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Unix command line
       
     </span>
   </a>
@@ -847,6 +899,66 @@
 </table>
 </details>
 <p><em>Terms of use:</em> Redistribution terms are being confirmed by the instructors. Use the files for this course only.</p>
+<h3 id="unix-command-line">The Unix command line<a class="headerlink" href="#unix-command-line" title="Permanent link">&para;</a></h3>
+<p>Used in the exercise <a href="../exercises/unix-command-line/">The Unix command line</a>.</p>
+<p><strong>How to get the data</strong></p>
+<ul>
+<li><strong>Recommended:</strong> import the shared Galaxy history: <a href="https://usegalaxy.eu/u/bentpetersen/h/kp-unix-command-line-data">https://usegalaxy.eu/u/bentpetersen/h/kp-unix-command-line-data</a>. It already contains every file with the correct datatype.</li>
+<li>The files are available through the shared Galaxy history only.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Description</th>
+<th>Technology</th>
+<th>Layout</th>
+<th>Galaxy datatype</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>proteins.tsv</code></td>
+<td>Reviewed UniProtKB/Swiss-Prot entries for a panel of human disease genes and their orthologs in other vertebrates (accession, entry name, gene name, organism, protein length)</td>
+<td>UniProtKB/Swiss-Prot table export</td>
+<td>tab-separated table with a header line</td>
+<td><code>tabular</code></td>
+<td>4 kB</td>
+</tr>
+<tr>
+<td><code>proteins.fasta</code></td>
+<td>Protein sequences of the same entries, with UniProt FASTA headers</td>
+<td>UniProtKB/Swiss-Prot FASTA export</td>
+<td>FASTA</td>
+<td><code>fasta</code></td>
+<td>97 kB</td>
+</tr>
+</tbody>
+</table>
+<details class="info">
+<summary>SHA-256 checksums</summary>
+<p>Use these to check that a downloaded file is complete and unchanged (<code>shasum -a 256 &lt;file&gt;</code> on macOS/Linux, <code>certutil -hashfile &lt;file&gt; SHA256</code> on Windows).</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>SHA-256</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>proteins.tsv</code></td>
+<td><code>fb49c8b42f995b4615413516f24b27e4a540ecce7fa0e7d346f8a63c442e3c7e</code></td>
+</tr>
+<tr>
+<td><code>proteins.fasta</code></td>
+<td><code>cfd3c3f805b17257539a25da2c71b036e788989ae020d7116f7f2e18d2594b43</code></td>
+</tr>
+</tbody>
+</table>
+</details>
+<p><em>Terms of use:</em> Data from UniProtKB/Swiss-Prot (UniProt Consortium, release 2026_03), licensed under CC BY 4.0 (https://www.uniprot.org/help/license). Selected and reformatted for teaching: a panel of human disease genes and their orthologs in other vertebrates.</p>
 
 
 
@@ -885,7 +997,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../exercises/ngs-preprocessing/" class="md-footer__link md-footer__link--prev" aria-label="Previous: NGS preprocessing and quality control">
+          <a href="../exercises/unix-command-line/" class="md-footer__link md-footer__link--prev" aria-label="Previous: The Unix command line">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -895,7 +1007,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                NGS preprocessing and quality control
+                The Unix command line
               </div>
             </div>
           </a>
