@@ -56,4 +56,40 @@ New to Galaxy? Read [Getting started](../galaxy/index.md) before the first pract
 
 </div>
 
+## Read mapping and variant calling
+
+<div class="grid cards" markdown>
+
+-   **Read mapping and variant calling**
+
+    How mapping works, what a BAM file contains, depth and breadth of coverage, reference regions without reads, haploid and diploid genotypes, why thresholds must fit the depth, filtering and Ts/Tv, and judging variants by their reads.
+
+    [Open the slides (Gamma)](https://gamma.app/docs/c4725gnd6y8evhz){ .md-button }
+
+-   **Practical**
+
+    Read mapping and variant calling in Galaxy Europe.
+
+    [Open the practical](../exercises/read-mapping-variant-calling/index.md){ .md-button .md-button--primary }
+
+</div>
+
+## Working with VCF files
+
+<div class="grid cards" markdown>
+
+-   **Working with VCF files**
+
+    The VCF format, genotypes and phasing, normalisation, comparing call sets, allele and genotype frequencies, linkage disequilibrium, and how to read a PCA of population structure.
+
+    [Open the slides (Gamma)](https://gamma.app/docs/ooxpa9jtyye9b6u){ .md-button }
+
+-   **Practical**
+
+    Working with VCF files, in a terminal in Galaxy Europe.
+
+    [Open the practical](../exercises/working-with-vcf/index.md){ .md-button .md-button--primary }
+
+</div>
+
 <!-- Maintainers: add further slide decks as cards in the matching section (live Gamma links); add a section per practical. Deck 02 is added once it is ready for students. -->

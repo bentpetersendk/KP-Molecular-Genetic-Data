@@ -21,6 +21,8 @@ nav:
       - exercises/index.md
       - NGS preprocessing and quality control: exercises/ngs-preprocessing/index.md
       - The Unix command line: exercises/unix-command-line/index.md
+      - Read mapping and variant calling: exercises/read-mapping-variant-calling/index.md
+      - Working with VCF files: exercises/working-with-vcf/index.md
   - Data: data/index.md
   - Resources: resources/index.md
 
