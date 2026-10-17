@@ -13,3 +13,7 @@ If you download the files yourself, upload them to Galaxy with the datatype list
 <!-- datasets: ngs-preprocessing -->
 
 <!-- datasets: unix-command-line -->
+
+<!-- datasets: read-mapping-variant-calling -->
+
+<!-- datasets: working-with-vcf -->
