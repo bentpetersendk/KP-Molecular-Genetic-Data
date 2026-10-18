@@ -10,7 +10,7 @@ title: "Working with VCF files"
 
     **Objectives**
 
-    - {'Explain the structure of a VCF file': 'meta-information, header line, fixed columns, INFO, FORMAT and genotypes'}
+    - Explain the structure of a VCF file: meta-information, header line, fixed columns, INFO, FORMAT and genotypes
     - Count variants, SNPs, Ts/Tv and genotypes in a VCF file with grep, cut, awk, sort and uniq
     - Index, view, query and normalise VCF files with bcftools, and explain why normalisation is needed before comparing
     - Compare your calls with an independent high-coverage call set inside callable regions, and compute precision, recall and genotype concordance

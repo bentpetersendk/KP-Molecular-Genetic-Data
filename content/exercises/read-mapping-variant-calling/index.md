@@ -11,7 +11,7 @@ title: "Read mapping and variant calling"
     **Objectives**
 
     - Map single-end and paired-end reads to a reference genome with BWA-MEM and read the main fields of a BAM file (FLAG, POS, MAPQ, CIGAR)
-    - {'Judge a mapping with simple statistics': 'mapping rate, depth and breadth of coverage'}
+    - Judge a mapping with simple statistics: mapping rate, depth and breadth of coverage
     - Use zero coverage to find reference genes without reads, and explain why that does not prove that a gene is lost
     - Call variants in a haploid bacterial genome with Snippy and explain how the minimum-coverage setting changes the result
     - Call variants in a diploid human genome with bcftools, filter them, and judge the call set with Ts/Tv and genotype counts
