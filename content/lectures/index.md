@@ -4,7 +4,7 @@ title: Lectures
 
 # Lectures
 
-The slides open in Gamma in your browser.
+Most slides open in Gamma in your browser. The read mapping slides are a PowerPoint file (.pptx): download it and open it in PowerPoint, Keynote, LibreOffice Impress or Google Slides.
 
 ## Course-wide
 
@@ -62,9 +62,11 @@ New to Galaxy? Read [Getting started](../galaxy/index.md) before the first pract
 
 -   **Read mapping and variant calling**
 
-    How mapping works, what a BAM file contains, depth and breadth of coverage, reference regions without reads, haploid and diploid genotypes, why thresholds must fit the depth, filtering and Ts/Tv, and judging variants by their reads.
+    How mapping works, what a BAM file contains, depth and breadth of coverage, regions without reads, haploid and diploid genotypes, PCR duplicates, filtering and Ts/Tv, and judging variants by their reads.
 
-    [Open the slides (Gamma)](https://gamma.app/docs/c4725gnd6y8evhz){ .md-button }
+    Emilio's original slides (15 slides with speaker notes). The practical was revised after it was tested on Galaxy Europe: where the slides and the practical differ, follow the practical.
+
+    [Download the slides (PowerPoint, .pptx)](slides/Practical3_Read_mapping_and_variant_calling.pptx){ .md-button }
 
 -   **Practical**
 
