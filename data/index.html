@@ -15,7 +15,7 @@
         <link rel="canonical" href="https://bentpetersendk.github.io/KP-Molecular-Genetic-Data/data/">
       
       
-        <link rel="prev" href="../exercises/unix-command-line/">
+        <link rel="prev" href="../exercises/working-with-vcf/">
       
       
         <link rel="next" href="../resources/">
@@ -459,6 +459,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -556,6 +560,62 @@
     
   
     The Unix command line
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercises/read-mapping-variant-calling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Read mapping and variant calling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../exercises/working-with-vcf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Working with VCF files
   
 
     
@@ -676,6 +736,28 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#read-mapping-variant-calling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read mapping and variant calling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-vcf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working with VCF files
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -770,6 +852,28 @@
     <span class="md-ellipsis">
       
         The Unix command line
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read-mapping-variant-calling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Read mapping and variant calling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#working-with-vcf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Working with VCF files
       
     </span>
   </a>
@@ -959,6 +1063,235 @@
 </table>
 </details>
 <p><em>Terms of use:</em> Data from UniProtKB/Swiss-Prot (UniProt Consortium, release 2026_03), licensed under CC BY 4.0 (https://www.uniprot.org/help/license). Selected and reformatted for teaching: a panel of human disease genes and their orthologs in other vertebrates.</p>
+<h3 id="read-mapping-variant-calling">Read mapping and variant calling<a class="headerlink" href="#read-mapping-variant-calling" title="Permanent link">&para;</a></h3>
+<p>Used in the exercise <a href="../exercises/read-mapping-variant-calling/">Read mapping and variant calling</a>.</p>
+<p><strong>How to get the data</strong></p>
+<ul>
+<li><strong>Recommended:</strong> import the shared Galaxy history: <a href="https://usegalaxy.eu/u/bentpetersen/h/kp-read-mapping-and-variant-calling-data">https://usegalaxy.eu/u/bentpetersen/h/kp-read-mapping-and-variant-calling-data</a>. It already contains every file with the correct datatype, and the paired collection.</li>
+<li>The files are available through the shared Galaxy history only.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Description</th>
+<th>Technology</th>
+<th>Layout</th>
+<th>Galaxy datatype</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Paeruginosa.cut.trim</code></td>
+<td>Pseudomonas aeruginosa clinical isolate (Danish cystic fibrosis lineage DK01), reads after Cutadapt and Trimmomatic as in the NGS preprocessing practical</td>
+<td>Illumina</td>
+<td>single-end</td>
+<td><code>fastqsanger.gz</code></td>
+<td>55 MB</td>
+</tr>
+<tr>
+<td><code>HG00418_trimmed_forward</code></td>
+<td>Human (1000 Genomes sample HG00418), read pairs from chromosome 21 after Trimmomatic - forward reads</td>
+<td>Illumina</td>
+<td>paired-end (forward)</td>
+<td><code>fastqsanger.gz</code></td>
+<td>77 MB</td>
+</tr>
+<tr>
+<td><code>HG00418_trimmed_reverse</code></td>
+<td>Human (1000 Genomes sample HG00418), read pairs from chromosome 21 after Trimmomatic - reverse reads</td>
+<td>Illumina</td>
+<td>paired-end (reverse)</td>
+<td><code>fastqsanger.gz</code></td>
+<td>77 MB</td>
+</tr>
+<tr>
+<td><code>PAO1.fasta</code></td>
+<td>Pseudomonas aeruginosa PAO1 reference genome (RefSeq NC_002516.2), sequence named NC_002516</td>
+<td>reference genome</td>
+<td>FASTA</td>
+<td><code>fasta</code></td>
+<td>6 MB</td>
+</tr>
+<tr>
+<td><code>PAO1.gbk</code></td>
+<td>The same genome with its gene annotation (RefSeq NC_002516.2)</td>
+<td>reference annotation</td>
+<td>GenBank</td>
+<td><code>genbank</code></td>
+<td>15 MB</td>
+</tr>
+<tr>
+<td><code>PAO1_genes.bed</code></td>
+<td>PAO1 genes: sequence name, start, end, locus tag and gene name, score, strand</td>
+<td>reference annotation</td>
+<td>BED</td>
+<td><code>bed</code></td>
+<td>217 kB</td>
+</tr>
+</tbody>
+</table>
+<p>Galaxy <strong>paired collection</strong> <code>HG00418_trimmed</code>: forward = <code>HG00418_trimmed_forward</code>, reverse = <code>HG00418_trimmed_reverse</code>.</p>
+<details class="info">
+<summary>SHA-256 checksums</summary>
+<p>Use these to check that a downloaded file is complete and unchanged (<code>shasum -a 256 &lt;file&gt;</code> on macOS/Linux, <code>certutil -hashfile &lt;file&gt; SHA256</code> on Windows).</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>SHA-256</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Paeruginosa.cut.trim</code></td>
+<td><code>72535e1a9234b43adb9d981ee37db5d6a3f9c112c8a68508cdfdd17511114541</code></td>
+</tr>
+<tr>
+<td><code>HG00418_trimmed_forward</code></td>
+<td><code>4d7c086ebfb598bdfc4aea9863ee2dc8ff8655ba20e99ea67677131c9b3d0862</code></td>
+</tr>
+<tr>
+<td><code>HG00418_trimmed_reverse</code></td>
+<td><code>f0ba403ea1e28f78da43d7ce858fb5ff6c41e62faa529a0dac95a27b6618912d</code></td>
+</tr>
+<tr>
+<td><code>PAO1.fasta</code></td>
+<td><code>3ac18a7fbf4c97e7f4b0ad1b1b94fd0bac2f4871eceff3e6563462e01da0574c</code></td>
+</tr>
+<tr>
+<td><code>PAO1.gbk</code></td>
+<td><code>8b4388ea984a0d7df4850e556aebc17acf77f2982acf2f192088df01befb4a6c</code></td>
+</tr>
+<tr>
+<td><code>PAO1_genes.bed</code></td>
+<td><code>997ab0629617e21fe5a06be3f18d68f3ff7b711ab3b347751d647358a5afc522</code></td>
+</tr>
+</tbody>
+</table>
+</details>
+<p><em>Terms of use:</em> P. aeruginosa reads: public ENA data, run ERR706017 (Andersen et al. 2015, PNAS 112:10756), trimmed in the NGS preprocessing practical. HG00418 reads: 1000 Genomes Project data (ENA run ERR1044272), open access without restrictions, trimmed in the NGS preprocessing practical. PAO1 genome and annotation: NCBI RefSeq NC_002516.2 (Stover et al. 2000, Nature 406:959), no restrictions on use; the FASTA header and the gene table were reformatted for the course.</p>
+<h3 id="working-with-vcf">Working with VCF files<a class="headerlink" href="#working-with-vcf" title="Permanent link">&para;</a></h3>
+<p>Used in the exercise <a href="../exercises/working-with-vcf/">Working with VCF files</a>.</p>
+<p><strong>How to get the data</strong></p>
+<ul>
+<li><strong>Recommended:</strong> import the shared Galaxy history: <a href="https://usegalaxy.eu/u/bentpetersen/h/kp-working-with-vcf-files-data">https://usegalaxy.eu/u/bentpetersen/h/kp-working-with-vcf-files-data</a>. It already contains every file with the correct datatype.</li>
+<li>The files are available through the shared Galaxy history only.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>Description</th>
+<th>Technology</th>
+<th>Layout</th>
+<th>Galaxy datatype</th>
+<th>Size</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HG00418.chr21.calls.vcf.gz</code></td>
+<td>Variant calls for HG00418 on chromosome 21 from the read mapping practical (bcftools, filtered)</td>
+<td>bcftools variant calls</td>
+<td>VCF (bgzip)</td>
+<td><code>vcf_bgzip</code></td>
+<td>893 kB</td>
+</tr>
+<tr>
+<td><code>HG00418.chr21.highcov.vcf.gz</code></td>
+<td>Variants of HG00418 on chromosome 21 from the 1000 Genomes high-coverage release (calls that passed its quality filter)</td>
+<td>1000 Genomes high-coverage release</td>
+<td>VCF (bgzip)</td>
+<td><code>vcf_bgzip</code></td>
+<td>984 kB</td>
+</tr>
+<tr>
+<td><code>HG00418.callable.bed</code></td>
+<td>Parts of chromosome 21 where the reads of the read mapping practical had enough depth to call variants</td>
+<td>derived from the HG00418 alignments</td>
+<td>BED</td>
+<td><code>bed</code></td>
+<td>5 MB</td>
+</tr>
+<tr>
+<td><code>chr21.fa</code></td>
+<td>Human chromosome 21 sequence (GRCh38, UCSC hg38)</td>
+<td>reference genome</td>
+<td>FASTA</td>
+<td><code>fasta</code></td>
+<td>48 MB</td>
+</tr>
+<tr>
+<td><code>panel.chr21.vcf.gz</code></td>
+<td>Genotypes on chromosome 21 of the unrelated people of the 1000 Genomes Project plus HG00418, at common SNPs</td>
+<td>1000 Genomes high-coverage release</td>
+<td>VCF (bgzip), phased</td>
+<td><code>vcf_bgzip</code></td>
+<td>73 MB</td>
+</tr>
+<tr>
+<td><code>samples_pop.tsv</code></td>
+<td>Person, population and super-population of everyone in the panel</td>
+<td>1000 Genomes sample information</td>
+<td>tab-separated table with a header line</td>
+<td><code>tabular</code></td>
+<td>40 kB</td>
+</tr>
+<tr>
+<td><code>pca.py</code></td>
+<td>Python code for the principal component analysis</td>
+<td>course material</td>
+<td>Python script</td>
+<td><code>txt</code></td>
+<td>4 kB</td>
+</tr>
+</tbody>
+</table>
+<details class="info">
+<summary>SHA-256 checksums</summary>
+<p>Use these to check that a downloaded file is complete and unchanged (<code>shasum -a 256 &lt;file&gt;</code> on macOS/Linux, <code>certutil -hashfile &lt;file&gt; SHA256</code> on Windows).</p>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>SHA-256</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>HG00418.chr21.calls.vcf.gz</code></td>
+<td><code>483d99a32edbb05c93fae2deeb2757eb46fb80b43fe0cd86e3a3ec39e097b625</code></td>
+</tr>
+<tr>
+<td><code>HG00418.chr21.highcov.vcf.gz</code></td>
+<td><code>017ccce5452944c3f44d3e78c5ee5a05e11294024b030b1ed0ce37e69a47c96e</code></td>
+</tr>
+<tr>
+<td><code>HG00418.callable.bed</code></td>
+<td><code>267042461423c8d6c43fcce8249df9895d50f599d306949df24e9217aaa57b35</code></td>
+</tr>
+<tr>
+<td><code>chr21.fa</code></td>
+<td><code>35c71b68436d1a278ecb6a1e875af3ba4020738a028a7feac769a6d62790ae1f</code></td>
+</tr>
+<tr>
+<td><code>panel.chr21.vcf.gz</code></td>
+<td><code>fadb85bedfd4f0352428c95ec496848943830fb7eab4fc8f462b9cca77ad03a2</code></td>
+</tr>
+<tr>
+<td><code>samples_pop.tsv</code></td>
+<td><code>6fb1d6475096c287b5060579bb06c437d3ad06640a77ed8d0bf17182264295d7</code></td>
+</tr>
+<tr>
+<td><code>pca.py</code></td>
+<td><code>9fcd1c989421c191acdc80ad865eede590d1475c9cc848108169f9c9095ca6ae</code></td>
+</tr>
+</tbody>
+</table>
+</details>
+<p><em>Terms of use:</em> 1000 Genomes Project data (high-coverage release; Byrska-Bishop et al. 2022, Cell 185:3426), open access. These data were generated at the New York Genome Center with funds provided by NHGRI Grant 3UM1HG008901-03S1. Chromosome 21 sequence: UCSC hg38 (GRCh38). The HG00418 calls, the callable regions and pca.py are course material, CC BY 4.0.</p>
 
 
 
@@ -997,7 +1330,7 @@
       <nav class="md-footer__inner md-grid" aria-label="Footer" >
         
           
-          <a href="../exercises/unix-command-line/" class="md-footer__link md-footer__link--prev" aria-label="Previous: The Unix command line">
+          <a href="../exercises/working-with-vcf/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Working with VCF files">
             <div class="md-footer__button md-icon">
               
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
@@ -1007,7 +1340,7 @@
                 Previous
               </span>
               <div class="md-ellipsis">
-                The Unix command line
+                Working with VCF files
               </div>
             </div>
           </a>
