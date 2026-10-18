@@ -4,7 +4,7 @@ title: Lectures
 
 # Lectures
 
-Most slides open in Gamma in your browser. The read mapping slides are a PowerPoint file (.pptx): download it and open it in PowerPoint, Keynote, LibreOffice Impress or Google Slides.
+Most slides open in Gamma in your browser. The slides for the read mapping and VCF practicals are PowerPoint files (.pptx): download them and open them in PowerPoint, Keynote, LibreOffice Impress or Google Slides.
 
 ## Course-wide
 
@@ -64,9 +64,9 @@ New to Galaxy? Read [Getting started](../galaxy/index.md) before the first pract
 
     How mapping works, what a BAM file contains, depth and breadth of coverage, regions without reads, haploid and diploid genotypes, PCR duplicates, filtering and Ts/Tv, and judging variants by their reads.
 
-    Emilio's original slides (15 slides with speaker notes). The practical was revised after it was tested on Galaxy Europe: where the slides and the practical differ, follow the practical.
+    Student edition of the original presentation supplied by Emilio Mármol Sánchez. The practical instructions contain the validated analysis settings; presentation updates are under review.
 
-    [Download the slides (PowerPoint, .pptx)](slides/Practical3_Read_mapping_and_variant_calling.pptx){ .md-button }
+    [Practical 3 — PowerPoint (Student Edition)](slides/Practical3_Read_mapping_and_variant_calling_STUDENT.pptx){ .md-button }
 
 -   **Practical**
 
@@ -82,9 +82,11 @@ New to Galaxy? Read [Getting started](../galaxy/index.md) before the first pract
 
 -   **Working with VCF files**
 
-    The VCF format, genotypes and phasing, normalisation, comparing call sets, allele and genotype frequencies, linkage disequilibrium, and how to read a PCA of population structure.
+    The VCF format, genotypes and phasing, SNPs, indels and normalisation, bcftools, comparing call sets with precision and recall, allele frequencies, linkage disequilibrium and PCA.
 
-    [Open the slides (Gamma)](https://gamma.app/docs/ooxpa9jtyye9b6u){ .md-button }
+    Student edition of the original presentation supplied by Emilio Mármol Sánchez. The practical instructions contain the validated analysis settings; presentation updates are under review.
+
+    [Practical 4 — PowerPoint (Student Edition)](slides/Practical4_Working_with_VCF_files_STUDENT.pptx){ .md-button }
 
 -   **Practical**
 
