@@ -272,7 +272,9 @@ The commands below make a two-column table per file (variant, genotype), write p
 
     **Q13.** We have called the high-coverage set our yardstick. Is it the truth? Give one reason why some of our "unconfirmed" calls could be real, and one why some "missed" variants could be wrong. What would a proper benchmark for this person need?
 
-## Part 4: HG00418 among human populations
+**Optional exercises:** Parts 4 and onwards are optional extensions. Students who have completed Parts 1–3 may continue with these sections if time permits.
+
+## Part 4: HG00418 among human populations (Optional)
 
 The 1000 Genomes Project sequenced people from 26 populations, grouped into five super-populations: African (AFR), admixed American (AMR), East Asian (EAS), European (EUR) and South Asian (SAS). The panel contains the 2,504 people of the project's unrelated set, plus HG00418 (his partner is in the unrelated set, his child is not). Relatives are left out so that no family is counted twice.
 
@@ -340,7 +342,7 @@ The **allele frequency** (AF) of a SNP in a group is the fraction of all chromos
 
     Compute the AF in EAS by hand from these counts and compare it with `AF_EAS` in `af.tsv`. Then compute the three **genotype** frequencies. Why are allele and genotype frequencies different numbers?
 
-## Part 5: A PCA of population structure
+## Part 5: A PCA of population structure (Optional)
 
 **The idea.** Each person has a genotype at thousands of SNPs: far too many numbers to look at. A **principal component analysis** (PCA) finds the few directions in which people differ most, and gives each person a coordinate on them (PC1, PC2, …). People with similar genotypes get similar coordinates. Plotting PC1 against PC2 shows groups of similar people **without** telling the method which population anyone belongs to.
 

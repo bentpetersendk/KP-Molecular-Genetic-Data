@@ -64,7 +64,7 @@ New to Galaxy? Read [Getting started](../galaxy/index.md) before the first pract
 
     How mapping works, what a BAM file contains, depth and breadth of coverage, regions without reads, haploid and diploid genotypes, PCR duplicates, filtering and Ts/Tv, and judging variants by their reads.
 
-    Student edition of the original presentation supplied by Emilio Mármol Sánchez. The practical instructions contain the validated analysis settings; presentation updates are under review.
+    Slides by Emilio Mármol Sánchez.
 
     [Practical 3 — PowerPoint (Student Edition)](slides/Practical3_Read_mapping_and_variant_calling_STUDENT.pptx){ .md-button }
 
@@ -84,7 +84,7 @@ New to Galaxy? Read [Getting started](../galaxy/index.md) before the first pract
 
     The VCF format, genotypes and phasing, SNPs, indels and normalisation, bcftools, comparing call sets with precision and recall, allele frequencies, linkage disequilibrium and PCA.
 
-    Student edition of the original presentation supplied by Emilio Mármol Sánchez. The practical instructions contain the validated analysis settings; presentation updates are under review.
+    Slides by Emilio Mármol Sánchez.
 
     [Practical 4 — PowerPoint (Student Edition)](slides/Practical4_Working_with_VCF_files_STUDENT.pptx){ .md-button }
 
