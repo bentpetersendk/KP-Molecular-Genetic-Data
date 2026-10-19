@@ -14,6 +14,8 @@ Most slides open in Gamma in your browser. The slides for the read mapping and V
 
     A short orientation to Galaxy Europe before the practicals: histories, datasets and collections, running a tool, and why you inspect before you trim.
 
+    Slides by Bent Petersen.
+
     [Open the slides (Gamma)](https://gamma.app/docs/iaervcmcjfk2y2n){ .md-button }
 
 </div>
@@ -42,9 +44,11 @@ New to Galaxy? Read [Getting started](../galaxy/index.md) before the first pract
 
 <div class="grid cards" markdown>
 
--   **The Unix command line for molecular genetic data**
+-   **02 - The Unix command line for molecular genetic data**
 
     The shell, files and paths, inspecting and searching biological text files, redirection, and connecting small tools with pipes.
+
+    Slides by Bent Petersen.
 
     [Open the slides (Gamma)](https://gamma.app/docs/2g3maim8xyow2nn){ .md-button }
 
@@ -60,7 +64,7 @@ New to Galaxy? Read [Getting started](../galaxy/index.md) before the first pract
 
 <div class="grid cards" markdown>
 
--   **Read mapping and variant calling**
+-   **03 - Read mapping and variant calling**
 
     How mapping works, what a BAM file contains, depth and breadth of coverage, regions without reads, haploid and diploid genotypes, PCR duplicates, filtering and Ts/Tv, and judging variants by their reads.
 
@@ -80,7 +84,7 @@ New to Galaxy? Read [Getting started](../galaxy/index.md) before the first pract
 
 <div class="grid cards" markdown>
 
--   **Working with VCF files**
+-   **04 - Working with VCF files**
 
     The VCF format, genotypes and phasing, SNPs, indels and normalisation, bcftools, comparing call sets with precision and recall, allele frequencies, linkage disequilibrium and PCA.
 
