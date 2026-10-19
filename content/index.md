@@ -52,6 +52,7 @@ The [Practicals](exercises/index.md) page lists every practical with its topics 
 ## Teachers
 
 - Bent Petersen
+- Emilio Mármol Sánchez
 <!-- TODO(instructors): add co-teachers here. -->
 
 Questions about the course material? Ask your teacher during the practical sessions.
