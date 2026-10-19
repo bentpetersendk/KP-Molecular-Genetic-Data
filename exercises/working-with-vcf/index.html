@@ -801,15 +801,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#part-4-hg00418-among-human-populations" class="md-nav__link">
+  <a href="#part-4-hg00418-among-human-populations-optional" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part 4: HG00418 among human populations
+        Part 4: HG00418 among human populations (Optional)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Part 4: HG00418 among human populations">
+    <nav class="md-nav" aria-label="Part 4: HG00418 among human populations (Optional)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -840,10 +840,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#part-5-a-pca-of-population-structure" class="md-nav__link">
+  <a href="#part-5-a-pca-of-population-structure-optional" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part 5: A PCA of population structure
+        Part 5: A PCA of population structure (Optional)
       
     </span>
   </a>
@@ -1086,15 +1086,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#part-4-hg00418-among-human-populations" class="md-nav__link">
+  <a href="#part-4-hg00418-among-human-populations-optional" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part 4: HG00418 among human populations
+        Part 4: HG00418 among human populations (Optional)
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Part 4: HG00418 among human populations">
+    <nav class="md-nav" aria-label="Part 4: HG00418 among human populations (Optional)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1125,10 +1125,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#part-5-a-pca-of-population-structure" class="md-nav__link">
+  <a href="#part-5-a-pca-of-population-structure-optional" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Part 5: A PCA of population structure
+        Part 5: A PCA of population structure (Optional)
       
     </span>
   </a>
@@ -1439,7 +1439,8 @@ awk<span class="w"> </span>-F<span class="s1">'\t'</span><span class="w"> </span
 <p><strong>Q12.</strong> What is the genotype concordance? Which disagreement is most common? Explain it with what you know about depth and heterozygous sites.</p>
 <p><strong>Q13.</strong> We have called the high-coverage set our yardstick. Is it the truth? Give one reason why some of our "unconfirmed" calls could be real, and one why some "missed" variants could be wrong. What would a proper benchmark for this person need?</p>
 </div>
-<h2 id="part-4-hg00418-among-human-populations">Part 4: HG00418 among human populations<a class="headerlink" href="#part-4-hg00418-among-human-populations" title="Permanent link">&para;</a></h2>
+<p><strong>Optional exercises:</strong> Parts 4 and onwards are optional extensions. Students who have completed Parts 1–3 may continue with these sections if time permits.</p>
+<h2 id="part-4-hg00418-among-human-populations-optional">Part 4: HG00418 among human populations (Optional)<a class="headerlink" href="#part-4-hg00418-among-human-populations-optional" title="Permanent link">&para;</a></h2>
 <p>The 1000 Genomes Project sequenced people from 26 populations, grouped into five super-populations: African (AFR), admixed American (AMR), East Asian (EAS), European (EUR) and South Asian (SAS). The panel contains the 2,504 people of the project's unrelated set, plus HG00418 (his partner is in the unrelated set, his child is not). Relatives are left out so that no family is counted twice.</p>
 <div class="admonition example">
 <p class="admonition-title">Hands-on: Who is in the panel?</p>
@@ -1488,7 +1489,7 @@ bcftools<span class="w"> </span>query<span class="w"> </span>-S<span class="w"> 
 </code></pre></div>
 <p>Compute the AF in EAS by hand from these counts and compare it with <code>AF_EAS</code> in <code>af.tsv</code>. Then compute the three <strong>genotype</strong> frequencies. Why are allele and genotype frequencies different numbers?</p>
 </div>
-<h2 id="part-5-a-pca-of-population-structure">Part 5: A PCA of population structure<a class="headerlink" href="#part-5-a-pca-of-population-structure" title="Permanent link">&para;</a></h2>
+<h2 id="part-5-a-pca-of-population-structure-optional">Part 5: A PCA of population structure (Optional)<a class="headerlink" href="#part-5-a-pca-of-population-structure-optional" title="Permanent link">&para;</a></h2>
 <p><strong>The idea.</strong> Each person has a genotype at thousands of SNPs: far too many numbers to look at. A <strong>principal component analysis</strong> (PCA) finds the few directions in which people differ most, and gives each person a coordinate on them (PC1, PC2, …). People with similar genotypes get similar coordinates. Plotting PC1 against PC2 shows groups of similar people <strong>without</strong> telling the method which population anyone belongs to.</p>
 <p><strong>Common SNPs only.</strong> Very rare SNPs say little about groups and add noise, so we keep SNPs with a minor allele frequency of at least 5 % in the whole panel.</p>
 <p><strong>Why prune.</strong> SNPs close to each other are inherited together and are therefore correlated (<em>linkage disequilibrium</em>, LD). A block of correlated SNPs would count many times and could dominate the PCA. <code>bcftools +prune</code> removes SNPs that are strongly correlated (r² &gt; 0.2) with another SNP within 50 kb.</p>
