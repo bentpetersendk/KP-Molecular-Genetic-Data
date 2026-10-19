@@ -30,6 +30,8 @@ New to Galaxy? Read [Getting started](../galaxy/index.md) before the first pract
 
     Sequencing technologies, read quality, quality control with FastQC, and adapter and quality trimming.
 
+    Slides by Bent Petersen.
+
     [Open the slides (Gamma)](https://gamma.app/docs/2026-03-09-KP-01-Pre-processing-of-NGS-Data-3ph5yyvsti8c5qf){ .md-button }
 
 -   **Practical**
