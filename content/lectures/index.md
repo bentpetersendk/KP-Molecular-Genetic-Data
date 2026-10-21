@@ -22,31 +22,11 @@ Most slides open in Gamma in your browser. The slides for the read mapping pract
 
 New to Galaxy? Read [Getting started](../galaxy/index.md) before the first practical.
 
-## NGS preprocessing and quality control
-
-<div class="grid cards" markdown>
-
--   **01 — Pre-processing of NGS Data**
-
-    Sequencing technologies, read quality, quality control with FastQC, and adapter and quality trimming.
-
-    Slides by Bent Petersen.
-
-    [Open the slides (Gamma)](https://gamma.app/docs/2026-03-09-KP-01-Pre-processing-of-NGS-Data-3ph5yyvsti8c5qf){ .md-button }
-
--   **Practical**
-
-    NGS preprocessing and quality control in Galaxy Europe.
-
-    [Open the practical](../exercises/ngs-preprocessing/index.md){ .md-button .md-button--primary }
-
-</div>
-
 ## The Unix command line
 
 <div class="grid cards" markdown>
 
--   **02 - The Unix command line for molecular genetic data**
+-   **01 — The Unix command line for molecular genetic data**
 
     The shell, files and paths, inspecting and searching biological text files, redirection, and connecting small tools with pipes.
 
@@ -62,11 +42,31 @@ New to Galaxy? Read [Getting started](../galaxy/index.md) before the first pract
 
 </div>
 
+## NGS preprocessing and quality control
+
+<div class="grid cards" markdown>
+
+-   **02 — Pre-processing of NGS Data**
+
+    Sequencing technologies, read quality, quality control with FastQC, and adapter and quality trimming.
+
+    Slides by Bent Petersen.
+
+    [Open the slides (Gamma)](https://gamma.app/docs/2026-03-09-KP-01-Pre-processing-of-NGS-Data-3ph5yyvsti8c5qf){ .md-button }
+
+-   **Practical**
+
+    NGS preprocessing and quality control in Galaxy Europe.
+
+    [Open the practical](../exercises/ngs-preprocessing/index.md){ .md-button .md-button--primary }
+
+</div>
+
 ## Read mapping and variant calling
 
 <div class="grid cards" markdown>
 
--   **03 - Read mapping and variant calling**
+-   **03 — Read mapping and variant calling**
 
     How mapping works, what a BAM file contains, depth and breadth of coverage, regions without reads, haploid and diploid genotypes, PCR duplicates, filtering and Ts/Tv, and judging variants by their reads.
 
@@ -82,4 +82,4 @@ New to Galaxy? Read [Getting started](../galaxy/index.md) before the first pract
 
 </div>
 
-<!-- Maintainers: add further slide decks as cards in the matching section (live Gamma links); add a section per practical. Deck 02 is added once it is ready for students. -->
+<!-- Maintainers: add further slide decks as cards in the matching section (live Gamma links); add a section per practical, in course order. -->

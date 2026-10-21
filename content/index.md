@@ -35,9 +35,9 @@ The practicals run in your web browser on [Galaxy Europe](https://usegalaxy.eu),
 
 ## Practicals
 
-- [NGS preprocessing and quality control](exercises/ngs-preprocessing/index.md): read quality control, adapter removal and quality trimming in Galaxy.
-- [The Unix command line](exercises/unix-command-line/index.md): files, directories and text tools in a Unix terminal in Galaxy, from single commands to pipelines on protein data.
-- [Read mapping and variant calling](exercises/read-mapping-variant-calling/index.md): map bacterial and human reads to a reference genome, judge the mapping and call variants in Galaxy.
+- 01 — [The Unix command line](exercises/unix-command-line/index.md): files, directories and text tools in a Unix terminal in Galaxy, from single commands to pipelines on protein data.
+- 02 — [NGS preprocessing and quality control](exercises/ngs-preprocessing/index.md): read quality control, adapter removal and quality trimming in Galaxy.
+- 03 — [Read mapping and variant calling](exercises/read-mapping-variant-calling/index.md): map bacterial and human reads to a reference genome, judge the mapping and call variants in Galaxy.
 
 The [Practicals](exercises/index.md) page lists every practical with its topics and duration.
 
