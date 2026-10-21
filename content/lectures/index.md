@@ -16,7 +16,7 @@ Most slides open in Gamma in your browser. The slides for the read mapping pract
 
     Slides by Bent Petersen.
 
-    [Open the slides (Gamma)](https://gamma.app/docs/iaervcmcjfk2y2n){ .md-button }
+    [Open the slides (Gamma)](https://gamma.app/docs/2026-10-21-KP-Molecular-Genetic-Data-00-Introduction-to-Galax-oa3rdv8ey9xrvmr){ .md-button }
 
 </div>
 
@@ -52,7 +52,7 @@ New to Galaxy? Read [Getting started](../galaxy/index.md) before the first pract
 
     Slides by Bent Petersen.
 
-    [Open the slides (Gamma)](https://gamma.app/docs/2026-03-09-KP-01-Pre-processing-of-NGS-Data-3ph5yyvsti8c5qf){ .md-button }
+    [Open the slides (Gamma)](https://gamma.app/docs/2026-10-21-KP-Molecular-Genetic-Data-01-Pre-processing-of-NGS-unhgl7f2zj01eu9){ .md-button }
 
 -   **Practical**
 
