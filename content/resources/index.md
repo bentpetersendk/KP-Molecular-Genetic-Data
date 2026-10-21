@@ -78,24 +78,4 @@ title: Resources
 - [Pseudomonas Genome Database](https://www.pseudomonas.com): gene information for PAO1 locus tags
 - [1000 Genomes Project, sample HG00418](https://www.internationalgenome.org/data-portal/sample/HG00418) and [ENA run ERR1044272](https://www.ebi.ac.uk/ena/browser/view/ERR1044272): the human reads
 
-## Working with VCF files
-
-### Tools and formats
-
-- [BCFtools manual](https://samtools.github.io/bcftools/bcftools.html): every command and option used in the practical
-- [VCF format specification](https://samtools.github.io/hts-specs/VCFv4.3.pdf)
-- [Ensembl genome browser (GRCh38)](https://www.ensembl.org/Homo_sapiens/Info/Index): look up SNP positions
-
-### Further reading
-
-- Danecek P, et al. (2011) The variant call format and VCFtools. *Bioinformatics* 27:2156–2158. [doi:10.1093/bioinformatics/btr330](https://doi.org/10.1093/bioinformatics/btr330)
-- Byrska-Bishop M, et al. (2022) High-coverage whole-genome sequencing of the expanded 1000 Genomes Project cohort including 602 trios. *Cell* 185:3426–3440. [doi:10.1016/j.cell.2022.08.004](https://doi.org/10.1016/j.cell.2022.08.004)
-- Patterson N, Price AL, Reich D (2006) Population structure and eigenanalysis. *PLoS Genetics* 2:e190. [doi:10.1371/journal.pgen.0020190](https://doi.org/10.1371/journal.pgen.0020190)
-- Zook JM, et al. (2019) An open resource for accurately benchmarking small variant and reference calls. *Nature Biotechnology* 37:561–566. [doi:10.1038/s41587-019-0074-6](https://doi.org/10.1038/s41587-019-0074-6): what a truth set (Genome in a Bottle) is
-
-### Data sources
-
-- [1000 Genomes high-coverage data (IGSR)](https://www.internationalgenome.org/data-portal/data-collection/30x-grch38): the high-coverage calls and the population panel
-- [1000 Genomes Project, sample HG00418](https://www.internationalgenome.org/data-portal/sample/HG00418)
-
 <!-- TODO(instructors): add reading lists, papers and other course resources here: course-wide items under General, practical-specific items under the practical's heading. -->

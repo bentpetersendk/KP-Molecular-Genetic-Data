@@ -58,7 +58,7 @@ The slides for this practical are on the Lectures page.
 
 The reads come from a *P. aeruginosa* isolate that was sampled from the lungs of a Danish patient with cystic fibrosis in 1984. It belongs to a lineage (clone type DK01) that spread between patients and adapted to the human lung over many years. The reads were published by Andersen et al. (2015, *PNAS*), in the European Nucleotide Archive as run ERR706017; the course file contains the first quarter of that run.
 
-PAO1 is the standard laboratory strain and has a carefully annotated genome. It is **not** the ancestor of our isolate: the two are different strains of the same species. Comparing them tells us how much two strains of one species can differ, and it lets us look for changes typical of adaptation to the lung, with limits that you will meet in Q9 and Q12.
+PAO1 is the standard laboratory strain and has a carefully annotated genome. It is **not** the ancestor of our isolate: the two are different strains of the same species. Comparing them tells us how much two strains of one species can differ, and it lets us look for changes typical of adaptation to the lung, with limits that you will meet in Step 4 and in Q10.
 
 ### Step 1: Predict before you map
 
@@ -136,6 +136,7 @@ The steps below are all quick table operations:
 3. **MergeBED** joins zero-depth intervals less than 100 bp apart into one region.
 4. **Filter** keeps regions of at least 1,000 bp.
 5. **Intersect intervals** finds the genes that lie (at least 90 %) inside those regions.
+6. **Compute** adds the length of each region as a fourth column.
 
 !!! example "Hands-on: Find regions without reads and the genes inside them"
 
@@ -153,20 +154,33 @@ The steps below are all quick table operations:
         - *"Write the original A entry _once_ if _any_ overlaps found in B."*: `Yes`
 
         Rename the output to `genes_without_reads.bed`.
+    6. **Compute** ([open tool](https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Fcolumn_maker%2FAdd_a_column1%2F2.1%2Bgalaxy0&version=2.1%2Bgalaxy0)) on `zero_coverage_regions.bed`:
+        - **Expressions**: *"Add expression"*: `c3-c2`
+         - *"Mode of the operation"*: `Append`
 
-!!! tip "Tip: Counting lines and adding up lengths in Galaxy"
+        Rename the output to `zero_coverage_regions_interval.bed`.
 
-    The number of lines of a dataset is shown when you expand it in the history. To add up region lengths, run **Compute** on `zero_coverage_regions.bed` with the expression `c3-c2`, then **Datamash** on its output with *Sum* on the new column.
+!!! note "Note: Reading `zero_coverage_regions_interval.bed`"
+
+    Each line is one region without reads: the sequence name (column 1), the start (column 2), the end (column 3) and, appended by Compute, the length of the region, end minus start (column 4). The largest region is the line with the largest value in column 4.
+
+    BED files count positions from 0, and the end position is not part of the interval. A region written as `1000 1250` covers 250 bases, from position 1,001 to 1,250 in the 1-based numbering that JBrowse2, GenBank and pseudomonas.com use. So end − start is exactly the length, and you add 1 to the BED start to get the first base of a region in JBrowse2.
+
+    To see which genes lie inside a region, compare the start and end of each gene in `genes_without_reads.bed` (columns 2 and 3) with the start and end of the region.
+
+!!! note "Note: What a region without reads does and does not show"
+
+    - **No reads is not the same as no gene.** The isolate may lack the DNA, or carry a version that is too different from PAO1 for its reads to map. Coverage alone cannot tell the two apart.
+    - **A merged region can contain a few reads.** MergeBED joined zero-coverage intervals that were less than 100 bp apart, so a region can include short covered stretches between them.
+    - **A listed gene can have a few reads.** Intersect reports a gene when at least 90 % of it lies inside a region; the rest of the gene may be covered. And because of the merging, not every base inside the region is necessarily without reads.
 
 !!! question "Questions"
 
-    **Q6.** How many zero-coverage regions of at least 1 kb are there, and how many bases do they cover in total? What fraction of the PAO1 genome is that?
+    **Q6.** Find the largest region without reads in `zero_coverage_regions_interval.bed` (the longest interval in column 4). Which genes from `genes_without_reads.bed` are located inside this region?
 
-    **Q7.** How many PAO1 genes lie (almost) completely inside these regions? Do they lie scattered or in clusters along the genome? Look at the largest region (the longest `c3-c2`), and look up three of its locus tags (`PAxxxx`) on [pseudomonas.com](https://www.pseudomonas.com). What kind of genes are they?
+    **Q7.** Look up three of these genes on [pseudomonas.com](https://www.pseudomonas.com). What kind of genes are they?
 
     **Q8.** Why do we demand zero coverage over 1 kb rather than, say, a depth below 2 over 50 bp? What would go wrong with the lenient rule?
-
-    **Q9.** A PAO1 gene has no reads at all. Give **three** different explanations. Can our data tell them apart, and what other data would?
 
 ### Step 5: Find mutations with Snippy (haploid variant calling)
 
@@ -179,10 +193,6 @@ The steps below are all quick table operations:
 
 You run Snippy twice: once with the default minimum coverage of 10 reads, and once with 5.
 
-!!! question "Questions: Predict"
-
-    **Q10.** Before you run anything: your mean depth is about 8× (Q5). With *"Minimum coverage"* `10`, Snippy reports a variant only where at least 10 reads cover it. Roughly what fraction of the genome do you expect to have at least 10 reads? Then run the two jobs below and compare **VariantTotal** in the two summaries. Explain the difference.
-
 !!! example "Hands-on: Run Snippy twice (each takes about a minute)"
 
     1. **snippy** ([open tool](https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fsnippy%2Fsnippy%2F4.6.0%2Bgalaxy0&version=4.6.0%2Bgalaxy0)):
@@ -194,13 +204,17 @@ You run Snippy twice: once with the default minimum coverage of 10 reads, and on
     2. Run **snippy** ([open tool](https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fsnippy%2Fsnippy%2F4.6.0%2Bgalaxy0&version=4.6.0%2Bgalaxy0)) again with the same settings, but open **Advanced parameters** and set *"Minimum coverage"*: `5`.
     3. Rename the outputs of the second run so that you can tell them apart, for example `snippy mincov5 snps table` and `snippy mincov5 snps vcf`.
 
+!!! note "Note: Why the two runs differ"
+
+    With *"Minimum coverage"* `10`, Snippy reports a variant only where at least 10 reads cover it. Your mean depth is about 8× (Q5), so most positions have fewer than 10 reads, and every variant there is left out of the default run. Compare **VariantTotal** in the two summaries: the run with minimum coverage 5 reports many more variants. The default suits deeper data (Snippy was designed for 30× and more). A threshold must fit the depth of your data.
+
 !!! question "Questions"
 
-    **Q11.** Open the **snps table** of the run with minimum coverage 5. The column EFFECT starts with the type of effect. Count the variants per type (use **Group** on column 11, or sort the table by it). Which type is the most common, and why do you think so?
+    **Q9.** Open the **snps table** of the run with minimum coverage 5. The column EFFECT starts with the type of effect. Count the variants per type (use **Group** on column 11, or sort the table by it). Which type is the most common, and why do you think so?
 
-    **Q12.** List the genes with a `stop_gained` or `frameshift_variant` (run with minimum coverage 5). Find *mucA* (PA0763) and *algU* (PA0762) in the list. Look them up on pseudomonas.com: what do they do? Is the *mucA* variant also in the table of the **default** run, and why (look at the EVIDENCE column)? Does a difference from PAO1 tell you that the mutation happened in the patient?
+    **Q10.** List the genes with a `stop_gained` or `frameshift_variant` (run with minimum coverage 5). Find *mucA* (PA0763) and *algU* (PA0762) in the list. Look them up on pseudomonas.com: what do they do? Is the *mucA* variant also in the table of the **default** run, and why (look at the EVIDENCE column)? Does a difference from PAO1 tell you that the mutation happened in the patient?
 
-    **Q13.** In a haploid genome, what fraction of the reads should show the alternative base at a real variant? What would it mean to see half of the reads with the reference base and half with the alternative base?
+    **Q11.** In a haploid genome, what fraction of the reads should show the alternative base at a real variant? What would it mean to see half of the reads with the reference base and half with the alternative base?
 
 ### Step 6: See the reads behind the variants (JBrowse2)
 
@@ -218,13 +232,18 @@ Tables summarise; a genome browser shows the actual reads. JBrowse2 runs inside 
 
 !!! tip "Tip: Moving around in JBrowse2"
 
-    Type a position such as `NC_002516:104000..104300` in the location box and press Enter. Zoom with the magnifying glasses. In the read track, grey means that the read matches the reference; a coloured base is a mismatch. A **whole column** of the same colour is a real variant; a single coloured base here and there is a sequencing error. Click a read or a variant to see its details. The sequence is called `NC_002516` in all these files.
+    Type a position such as `NC_002516:91,931..92,297` (part of the gene icmF1, PA0077) in the location box and press Enter. Zoom with the magnifying glasses. In the read track, grey means that the read matches the reference; a coloured base is a mismatch.
+
+    - A **column** in which (nearly) all reads show the same coloured base **supports** a variant at that position. It does not prove one: reads placed in the wrong copy of a repeat can also line up a mismatch.
+    - A **single** coloured base in one read is often a sequencing error, but not necessarily: at low depth a real variant may be seen in only one or two reads.
+
+    Click a read or a variant to see its details. The sequence is called `NC_002516` in all these files.
 
 !!! question "Questions"
 
-    **Q14.** Go to the *mucA* stop variant from Q12. How many reads show the alternative base, and how many the reference base? Are both strands represented? Does that fit a haploid genome (Q13)?
+    **Q12.** Go to the *mucA* stop variant from Q10. How many reads show the alternative base, and how many the reference base? Are both strands represented? Does that fit a haploid genome (Q11)?
 
-    **Q15.** Go to the start of the largest zero-coverage region from Q7. What does the coverage look like just before, inside and just after it? Are reads at the edge soft-clipped (shown with a coloured end), and what does that tell you?
+    **Q13.** Go to the start of the largest zero-coverage region from Q6. What does the coverage look like just before, inside and just after it? Are reads at the edge soft-clipped (shown with a coloured end), and what does that tell you?
 
 ## Part B: Human chromosome 21
 
@@ -248,7 +267,7 @@ We use Galaxy's **built-in index** of the human genome (hg38), so no index has t
 
 !!! question "Questions: Predict before you map"
 
-    **Q16.** These reads were selected because they mapped to chromosome 21 in an earlier analysis. Why do we still map them to the **whole** human genome instead of to chromosome 21 alone?
+    **Q14.** These reads were selected because they mapped to chromosome 21 in an earlier analysis. Why do we still map them to the **whole** human genome instead of to chromosome 21 alone?
 
 !!! example "Hands-on: Map the read pairs (takes a few minutes)"
 
@@ -275,11 +294,11 @@ We use Galaxy's **built-in index** of the human genome (hg38), so no index has t
 
 !!! question "Questions"
 
-    **Q17.** What fraction of the reads mapped, and what fraction mapped as properly paired? How many reads mapped to other sequences than `chr21` (use idxstats; the names ending in `_alt` are alternative versions of regions of the reference)? Relate this to your answer to Q16.
+    **Q15.** What fraction of the reads mapped, and what fraction mapped as properly paired? How many reads mapped to other sequences than `chr21` (use idxstats; the names ending in `_alt` are alternative versions of regions of the reference)? Relate this to your answer to Q14.
 
-    **Q18.** What is the duplication rate (`PERCENT_DUPLICATION` in the MarkDuplicates metrics; it is a fraction, not a percentage)? Why is it so low here? *(Hint: our reads are a small part of one lane of a much larger sequencing library.)*
+    **Q16.** What is the duplication rate (`PERCENT_DUPLICATION` in the MarkDuplicates metrics; it is a fraction, not a percentage)? Why is it so low here? *(Hint: our reads are a small part of one lane of a much larger sequencing library.)*
 
-    **Q19.** What is the mean depth on chr21, and what fraction of chr21 has at least one read? At a heterozygous site each read shows the alternative base with probability 0.5. At your mean depth *d*, what is the probability that **none** of the reads shows it (0.5^*d*)? What does that mean for finding heterozygous SNPs?
+    **Q17.** What is the mean depth on chr21, and what fraction of chr21 has at least one read? At a heterozygous site each read shows the alternative base with probability 0.5. At your mean depth *d*, what is the probability that **none** of the reads shows it (0.5^*d*)? What does that mean for finding heterozygous SNPs?
 
 ### Step 9: Call variants with bcftools
 
@@ -314,10 +333,6 @@ Variant calling is done in two steps:
 
     Position 10,414,881 has C in the reference and T in this person. QUAL 124: the caller is very sure that there is a variant. In the sample column, read the values in the order given by FORMAT: genotype `0/1` (heterozygous), the genotype likelihoods `PL`, depth `DP` 9, and allele depths `AD`: 4 reads with the reference base and 5 with the alternative base. *(An illustration, not a line from your file.)*
 
-!!! question "Questions"
-
-    **Q20.** Open your raw VCF (eye icon). Find the header lines that define `DP` and `AD`. Pick one heterozygous and one homozygous alternative variant and explain every column, as in the example above. Does AD fit the genotype?
-
 ### Step 10: Filter the calls and judge their quality
 
 **Why filter.** The raw VCF contains every site where the caller saw *some* evidence. Many are false: sequencing errors, misplaced reads. Two simple filters remove most of them:
@@ -339,11 +354,11 @@ Variant calling is done in two steps:
 
 !!! question "Questions"
 
-    **Q21.** In the `SN` section of each report: how many SNPs and indels are in the raw and in the filtered set? What fraction of the records did the filter remove?
+    **Q18.** In the `SN` section of each report: how many SNPs and indels are in the raw and in the filtered set? What fraction of the records did the filter remove?
 
-    **Q22.** In the `TSTV` section: what is Ts/Tv for the raw and for the filtered set? Use the transition and transversion counts to compute Ts/Tv of the calls the filter **removed**. What does that tell you about them?
+    **Q19.** In the `TSTV` section, what is the Ts/Tv ratio for the raw VCF and for the filtered VCF? Are these ratios close to the values generally expected for human SNPs? What can the ratios suggest about the call sets as a whole, and can they establish whether an individual SNP is real?
 
-    **Q23.** In the `PSC` section of the filtered set: how many heterozygous (`nHets`) and homozygous alternative (`nNonRefHom`) SNPs are there? In a deeply sequenced genome of this person there are about 1.7 heterozygous SNPs for every homozygous alternative SNP on chr21. What do you see, and why?
+    **Q20.** In the `PSC` section of the filtered dataset, how many heterozygous SNPs (`nHets`) and homozygous alternative SNPs (`nNonRefHom`) are there?
 
 ### Step 11: Look at the evidence in a genome browser
 
@@ -362,14 +377,4 @@ Looking at a few variants is the best way to understand what a caller sees, and 
 
 !!! question "Questions"
 
-    **Q24.** For each of the three variants: how many reads show the alternative base, on which strands (click a read to see its strand and MAPQ), and do the alternative bases sit in the middle or near the ends of reads? Why do you think the third call was removed?
-
-!!! example "Hands-on: Keep your results"
-
-    Keep `HG00418.chr21.filtered.vcf` and `HG00418.md.bam` in your history. The VCF practical starts from the same calls (a copy is provided there), and you can come back to this JBrowse2 view to look at variants.
-
-## Putting it together
-
-!!! question "Questions"
-
-    **Q25.** Coverage was used for two different purposes today. Name them. Then give two differences between variant calling in the bacterium and in the human sample.
+    **Q21.** For each of the three variants: how many reads show the alternative base, on which strands (click a read to see its strand and MAPQ), and do the alternative bases sit in the middle or near the ends of reads? Why do you think the third call was removed?

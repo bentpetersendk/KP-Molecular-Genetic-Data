@@ -4,7 +4,7 @@ title: Lectures
 
 # Lectures
 
-Most slides open in Gamma in your browser. The slides for the read mapping and VCF practicals are PowerPoint files (.pptx): download them and open them in PowerPoint, Keynote, LibreOffice Impress or Google Slides.
+Most slides open in Gamma in your browser. The slides for the read mapping practical are a PowerPoint file (.pptx): download it and open it in PowerPoint, Keynote, LibreOffice Impress or Google Slides.
 
 ## Course-wide
 
@@ -79,26 +79,6 @@ New to Galaxy? Read [Getting started](../galaxy/index.md) before the first pract
     Read mapping and variant calling in Galaxy Europe.
 
     [Open the practical](../exercises/read-mapping-variant-calling/index.md){ .md-button .md-button--primary }
-
-</div>
-
-## Working with VCF files
-
-<div class="grid cards" markdown>
-
--   **04 - Working with VCF files**
-
-    The VCF format, genotypes and phasing, SNPs, indels and normalisation, bcftools, comparing call sets with precision and recall, allele frequencies, linkage disequilibrium and PCA.
-
-    Slides by Emilio Mármol Sánchez.
-
-    [Practical 4 — PowerPoint (Student Edition)](slides/Practical4_Working_with_VCF_files_STUDENT.pptx){ .md-button }
-
--   **Practical**
-
-    Working with VCF files, in a terminal in Galaxy Europe.
-
-    [Open the practical](../exercises/working-with-vcf/index.md){ .md-button .md-button--primary }
 
 </div>
 
