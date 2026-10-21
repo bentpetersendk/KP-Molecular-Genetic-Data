@@ -19,8 +19,8 @@ nav:
   - Lectures: lectures/index.md
   - Practicals:
       - exercises/index.md
-      - NGS preprocessing and quality control: exercises/ngs-preprocessing/index.md
       - The Unix command line: exercises/unix-command-line/index.md
+      - NGS preprocessing and quality control: exercises/ngs-preprocessing/index.md
       - Read mapping and variant calling: exercises/read-mapping-variant-calling/index.md
   - Data: data/index.md
   - Resources: resources/index.md
