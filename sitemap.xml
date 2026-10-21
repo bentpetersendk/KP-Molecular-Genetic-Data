@@ -2,42 +2,38 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://bentpetersendk.github.io/KP-Molecular-Genetic-Data/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://bentpetersendk.github.io/KP-Molecular-Genetic-Data/data/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://bentpetersendk.github.io/KP-Molecular-Genetic-Data/exercises/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://bentpetersendk.github.io/KP-Molecular-Genetic-Data/exercises/ngs-preprocessing/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://bentpetersendk.github.io/KP-Molecular-Genetic-Data/exercises/read-mapping-variant-calling/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://bentpetersendk.github.io/KP-Molecular-Genetic-Data/exercises/unix-command-line/</loc>
-         <lastmod>2026-10-19</lastmod>
-    </url>
-    <url>
-         <loc>https://bentpetersendk.github.io/KP-Molecular-Genetic-Data/exercises/working-with-vcf/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://bentpetersendk.github.io/KP-Molecular-Genetic-Data/galaxy/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://bentpetersendk.github.io/KP-Molecular-Genetic-Data/lectures/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
     <url>
          <loc>https://bentpetersendk.github.io/KP-Molecular-Genetic-Data/resources/</loc>
-         <lastmod>2026-10-19</lastmod>
+         <lastmod>2026-10-21</lastmod>
     </url>
 </urlset>
