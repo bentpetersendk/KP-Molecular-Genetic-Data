@@ -1347,8 +1347,8 @@
 <div class="admonition example">
 <p class="admonition-title">Hands-on: Import the data</p>
 <ol>
-<li>Log in to <a href="https://usegalaxy.eu">Galaxy Europe</a> (create a free account first if you do not have one). Log in <strong>before</strong> you open the data link: otherwise your copy is not saved in your account.</li>
-<li>Open the shared data history: <a href="https://usegalaxy.eu/u/bentpetersen/h/kp-preprocessing-data">shared data history</a></li>
+<li>Log in to <a href="https://usegalaxy.eu" target="_blank" rel="noopener noreferrer">Galaxy Europe</a> (create a free account first if you do not have one). Log in <strong>before</strong> you open the data link: otherwise your copy is not saved in your account.</li>
+<li>Open the shared data history: <a href="https://usegalaxy.eu/u/bentpetersen/h/kp-preprocessing-data" target="_blank" rel="noopener noreferrer">shared data history</a></li>
 <li>Click <strong>Import this history</strong> (top right, above the history).</li>
 <li>In the <strong>Copying History</strong> dialog:<ul>
 <li><em>"Enter a title for the new history"</em>: replace the suggested title with <code>Preprocessing</code></li>
@@ -1389,7 +1389,7 @@
 <div class="admonition example">
 <p class="admonition-title">Hands-on: Run FastQC on the raw reads</p>
 <ol>
-<li>Run <strong>FastQC</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Ffastqc%2Ffastqc%2F0.74%2Bgalaxy1&amp;version=0.74%2Bgalaxy1">open tool</a>) with the following parameters:<ul>
+<li>Run <strong>FastQC</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Ffastqc%2Ffastqc%2F0.74%2Bgalaxy1&amp;version=0.74%2Bgalaxy1" target="_blank" rel="noopener noreferrer">open tool</a>) with the following parameters:<ul>
 <li><em>"Raw read data from your current history"</em>: <code>Paeruginosa.fastq.gz</code> (Galaxy pre-selects the newest dataset, so change it)</li>
 <li>Leave all other parameters at their defaults.</li>
 <li>Galaxy Europe shows a banner recommending the tool <em>Falco</em> instead. Ignore it: this exercise uses FastQC.</li>
@@ -1460,7 +1460,7 @@
 <div class="admonition example">
 <p class="admonition-title">Hands-on: Run Cutadapt</p>
 <ol>
-<li>Run <strong>Cutadapt</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Flparsons%2Fcutadapt%2Fcutadapt%2F5.2%2Bgalaxy2&amp;version=5.2%2Bgalaxy2">open tool</a>) with the following parameters:<ul>
+<li>Run <strong>Cutadapt</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Flparsons%2Fcutadapt%2Fcutadapt%2F5.2%2Bgalaxy2&amp;version=5.2%2Bgalaxy2" target="_blank" rel="noopener noreferrer">open tool</a>) with the following parameters:<ul>
 <li><em>"Single-end or Paired-end reads?"</em>: <code>Single-end</code><ul>
 <li><em>"FASTQ/A file"</em>: <code>Paeruginosa.fastq.gz</code></li>
 <li>In <em>"Read 1 Adapters"</em>:<ul>
@@ -1494,7 +1494,7 @@
 <li>Rename the output <strong>Read 1 Output</strong> to <code>Paeruginosa.cut</code>: click the dataset, click the pencil icon, change <strong>Name</strong>, and click <strong>Save</strong>.</li>
 </ol>
 </div>
-<p>After trimming, reads shorter than 50 nt are discarded (<em>"Minimum length (R1)"</em>). This and the other Cutadapt settings can be changed in the tool form. More information about adapter types can be found in the <a href="https://cutadapt.readthedocs.io/en/stable/guide.html#adapter-types">Cutadapt documentation — Adapter types</a>.</p>
+<p>After trimming, reads shorter than 50 nt are discarded (<em>"Minimum length (R1)"</em>). This and the other Cutadapt settings can be changed in the tool form. More information about adapter types can be found in the <a href="https://cutadapt.readthedocs.io/en/stable/guide.html#adapter-types" target="_blank" rel="noopener noreferrer">Cutadapt documentation — Adapter types</a>.</p>
 <h4 id="inspect-the-cutadapt-report">Inspect the Cutadapt report<a class="headerlink" href="#inspect-the-cutadapt-report" title="Permanent link">&para;</a></h4>
 <p>When the job has finished, click the eye icon on the <strong>Report</strong> dataset. The statistics are shown at the top of the report (<code>=== Summary ===</code>), followed by one section per adapter.</p>
 <div class="admonition question">
@@ -1512,7 +1512,7 @@
 <div class="admonition example">
 <p class="admonition-title">Hands-on: Run Trimmomatic</p>
 <ol>
-<li>Run <strong>Trimmomatic</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fpjbriggs%2Ftrimmomatic%2Ftrimmomatic%2F0.39%2Bgalaxy2&amp;version=0.39%2Bgalaxy2">open tool</a>) with the following parameters:<ul>
+<li>Run <strong>Trimmomatic</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fpjbriggs%2Ftrimmomatic%2Ftrimmomatic%2F0.39%2Bgalaxy2&amp;version=0.39%2Bgalaxy2" target="_blank" rel="noopener noreferrer">open tool</a>) with the following parameters:<ul>
 <li><em>"Single-end or paired-end reads?"</em>: <code>Single-end</code><ul>
 <li><em>"Input FASTQ file"</em>: <code>Paeruginosa.cut</code></li>
 </ul>
@@ -1556,7 +1556,7 @@
 <div class="admonition example">
 <p class="admonition-title">Hands-on: Run FastQC on the trimmed data</p>
 <ol>
-<li>Run <strong>FastQC</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Ffastqc%2Ffastqc%2F0.74%2Bgalaxy1&amp;version=0.74%2Bgalaxy1">open tool</a>):<ul>
+<li>Run <strong>FastQC</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Ffastqc%2Ffastqc%2F0.74%2Bgalaxy1&amp;version=0.74%2Bgalaxy1" target="_blank" rel="noopener noreferrer">open tool</a>):<ul>
 <li><em>"Raw read data from your current history"</em>: select <strong>both</strong> <code>Paeruginosa.cut</code> and <code>Paeruginosa.cut.trim</code>. Click the <em>Multiple datasets</em> button, then click the datasets in the list. Galaxy may already have selected one dataset for you, and clicking a selected dataset removes it again: check that the box shows exactly these two datasets (remove any other with its <strong>×</strong>). Galaxy runs FastQC once for each dataset.</li>
 </ul>
 </li>
@@ -1607,7 +1607,7 @@ Alternatively, open each report in its own browser tab: Ctrl-click (Cmd-click on
 <div class="admonition example">
 <p class="admonition-title">Hands-on: Run FastQC on the paired collection</p>
 <ol>
-<li>Run <strong>FastQC</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Ffastqc%2Ffastqc%2F0.74%2Bgalaxy1&amp;version=0.74%2Bgalaxy1">open tool</a>):<ul>
+<li>Run <strong>FastQC</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Ffastqc%2Ffastqc%2F0.74%2Bgalaxy1&amp;version=0.74%2Bgalaxy1" target="_blank" rel="noopener noreferrer">open tool</a>):<ul>
 <li><em>"Raw read data from your current history"</em>: click the <em>Dataset collection</em> button and select <code>HG00418</code>.</li>
 </ul>
 </li>
@@ -1630,7 +1630,7 @@ Alternatively, open each report in its own browser tab: Ctrl-click (Cmd-click on
 <div class="admonition example">
 <p class="admonition-title">Hands-on: Run Trimmomatic on the paired collection</p>
 <ol>
-<li>Run <strong>Trimmomatic</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fpjbriggs%2Ftrimmomatic%2Ftrimmomatic%2F0.39%2Bgalaxy2&amp;version=0.39%2Bgalaxy2">open tool</a>) with the following parameters:<ul>
+<li>Run <strong>Trimmomatic</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fpjbriggs%2Ftrimmomatic%2Ftrimmomatic%2F0.39%2Bgalaxy2&amp;version=0.39%2Bgalaxy2" target="_blank" rel="noopener noreferrer">open tool</a>) with the following parameters:<ul>
 <li><em>"Single-end or paired-end reads?"</em>: <code>Paired-end (as collection)</code><ul>
 <li><em>"Select FASTQ dataset collection with R1/R2 pair"</em>: <code>HG00418</code></li>
 </ul>
@@ -1694,7 +1694,7 @@ Alternatively, open each report in its own browser tab: Ctrl-click (Cmd-click on
 <div class="admonition example">
 <p class="admonition-title">Hands-on: Run FastQC on both datasets</p>
 <ol>
-<li>Run <strong>FastQC</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Ffastqc%2Ffastqc%2F0.74%2Bgalaxy1&amp;version=0.74%2Bgalaxy1">open tool</a>):<ul>
+<li>Run <strong>FastQC</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Ffastqc%2Ffastqc%2F0.74%2Bgalaxy1&amp;version=0.74%2Bgalaxy1" target="_blank" rel="noopener noreferrer">open tool</a>):<ul>
 <li><em>"Raw read data from your current history"</em>: select both <code>GOS1.fastq.gz</code> and <code>iontorrent.fastq.gz</code> (<em>Multiple datasets</em>). As before, check that the box shows exactly these two datasets.</li>
 </ul>
 </li>
@@ -1714,7 +1714,7 @@ Alternatively, open each report in its own browser tab: Ctrl-click (Cmd-click on
 <p><strong>Q18.</strong> Compare all three technologies you have seen today (Illumina, 454, Ion Torrent). Which produce reads of a fixed length? Summarise, in one sentence each, the characteristic read length and quality profile of each technology. Based on the plots, which dataset would you expect to lose the most reads if trimmed with the same settings as the Illumina data (average quality 20), and why? <em>(You can test your prediction in the optional exploration, Q19.)</em></p>
 </div>
 <h3 id="optional-exploration">Optional exploration<a class="headerlink" href="#optional-exploration" title="Permanent link">&para;</a></h3>
-<p>Try trimming the 454 and Ion Torrent reads to remove low-quality bases with <strong>Trimmomatic</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fpjbriggs%2Ftrimmomatic%2Ftrimmomatic%2F0.39%2Bgalaxy2&amp;version=0.39%2Bgalaxy2">open tool</a>) (<em>"Single-end"</em>, the same four operations as before), and then run <strong>FastQC</strong> again to evaluate the effect of trimming.</p>
+<p>Try trimming the 454 and Ion Torrent reads to remove low-quality bases with <strong>Trimmomatic</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fpjbriggs%2Ftrimmomatic%2Ftrimmomatic%2F0.39%2Bgalaxy2&amp;version=0.39%2Bgalaxy2" target="_blank" rel="noopener noreferrer">open tool</a>) (<em>"Single-end"</em>, the same four operations as before), and then run <strong>FastQC</strong> again to evaluate the effect of trimming.</p>
 <div class="admonition question">
 <p class="admonition-title">Questions</p>
 <p><strong>Q19.</strong> <em>(Optional)</em> How many reads survive trimming for each technology? Explain what you observe.</p>

@@ -1181,7 +1181,7 @@
 <div class="admonition example">
 <p class="admonition-title">Hands-on: Import the data history</p>
 <ol>
-<li>Open the <a href="https://usegalaxy.eu/u/bentpetersen/h/kp-read-mapping-and-variant-calling-data">shared data history</a> and click <strong>Import this history</strong>. Give the copy the name <code>Read mapping practical</code>.</li>
+<li>Open the <a href="https://usegalaxy.eu/u/bentpetersen/h/kp-read-mapping-and-variant-calling-data" target="_blank" rel="noopener noreferrer">shared data history</a> and click <strong>Import this history</strong>. Give the copy the name <code>Read mapping practical</code>.</li>
 <li>Check that your new history contains five datasets and one collection:<ul>
 <li><code>Paeruginosa.cut.trim</code>: the trimmed <em>P. aeruginosa</em> reads (the same file you made at the end of the preprocessing practical)</li>
 <li><code>HG00418_trimmed</code>: a paired collection with the trimmed HG00418 read pairs (<code>HG00418_trimmed_forward</code> and <code>HG00418_trimmed_reverse</code>, shown as hidden datasets)</li>
@@ -1211,7 +1211,7 @@ depth ≈ total sequenced bases / genome size.</p>
 <div class="admonition example">
 <p class="admonition-title">Hands-on: Map the reads (takes about a minute)</p>
 <ol>
-<li><strong>Map with BWA-MEM</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Fbwa%2Fbwa_mem%2F0.7.19%2Bgalaxy1&amp;version=0.7.19%2Bgalaxy1">open tool</a>) with the following parameters:<ul>
+<li><strong>Map with BWA-MEM</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Fbwa%2Fbwa_mem%2F0.7.19%2Bgalaxy1&amp;version=0.7.19%2Bgalaxy1" target="_blank" rel="noopener noreferrer">open tool</a>) with the following parameters:<ul>
 <li><em>"Will you select a reference genome from your history or use a built-in index?"</em>: <code>Use a genome from history and build index</code></li>
 <li><em>"Use the following dataset as the reference sequence"</em>: <code>PAO1.fasta</code></li>
 <li><em>"Single or Paired-end reads"</em>: <code>Single</code></li>
@@ -1271,7 +1271,7 @@ depth ≈ total sequenced bases / genome size.</p>
 </div>
 <div class="admonition question">
 <p class="admonition-title">Questions</p>
-<p><strong>Q3.</strong> Pick three reads. For each, write down FLAG, POS, MAPQ and CIGAR and say in words what they mean. Decode each FLAG with the <a href="https://broadinstitute.github.io/picard/explain-flags.html">SAM flag explainer</a>.</p>
+<p><strong>Q3.</strong> Pick three reads. For each, write down FLAG, POS, MAPQ and CIGAR and say in words what they mean. Decode each FLAG with the <a href="https://broadinstitute.github.io/picard/explain-flags.html" target="_blank" rel="noopener noreferrer">SAM flag explainer</a>.</p>
 </div>
 <h3 id="step-3-how-good-is-the-mapping">Step 3: How good is the mapping?<a class="headerlink" href="#step-3-how-good-is-the-mapping" title="Permanent link">&para;</a></h3>
 <p>Two numbers summarise a mapping:</p>
@@ -1282,8 +1282,8 @@ depth ≈ total sequenced bases / genome size.</p>
 <div class="admonition example">
 <p class="admonition-title">Hands-on: Mapping statistics (each takes less than a minute)</p>
 <ol>
-<li><strong>Samtools flagstat</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Fsamtools_flagstat%2Fsamtools_flagstat%2F2.0.8&amp;version=2.0.8">open tool</a>) with <em>"BAM File to report statistics of"</em>: <code>Pa_vs_PAO1.bam</code></li>
-<li><strong>Samtools coverage</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fsamtools_coverage%2Fsamtools_coverage%2F1.22%2Bgalaxy3&amp;version=1.22%2Bgalaxy3">open tool</a>) with <em>"BAM file"</em>: <code>Pa_vs_PAO1.bam</code> (keep the defaults)</li>
+<li><strong>Samtools flagstat</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Fsamtools_flagstat%2Fsamtools_flagstat%2F2.0.8&amp;version=2.0.8" target="_blank" rel="noopener noreferrer">open tool</a>) with <em>"BAM File to report statistics of"</em>: <code>Pa_vs_PAO1.bam</code></li>
+<li><strong>Samtools coverage</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fsamtools_coverage%2Fsamtools_coverage%2F1.22%2Bgalaxy3&amp;version=1.22%2Bgalaxy3" target="_blank" rel="noopener noreferrer">open tool</a>) with <em>"BAM file"</em>: <code>Pa_vs_PAO1.bam</code> (keep the defaults)</li>
 </ol>
 </div>
 <div class="admonition question">
@@ -1306,15 +1306,15 @@ depth ≈ total sequenced bases / genome size.</p>
 <div class="admonition example">
 <p class="admonition-title">Hands-on: Find regions without reads and the genes inside them</p>
 <ol>
-<li><strong>bedtools Genome Coverage</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fbedtools%2Fbedtools_genomecoveragebed%2F2.31.1%2Bgalaxy0&amp;version=2.31.1%2Bgalaxy0">open tool</a>):<ul>
+<li><strong>bedtools Genome Coverage</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fbedtools%2Fbedtools_genomecoveragebed%2F2.31.1%2Bgalaxy0&amp;version=2.31.1%2Bgalaxy0" target="_blank" rel="noopener noreferrer">open tool</a>):<ul>
 <li><em>"Input type"</em>: <code>BAM</code>, <em>"BAM file"</em>: <code>Pa_vs_PAO1.bam</code></li>
 <li><em>"Output type"</em>: <code>BedGraph coverage file</code></li>
 <li><em>"Report regions with zero coverage"</em>: <code>Yes</code></li>
 </ul>
 </li>
-<li><strong>Filter</strong> (<a href="https://usegalaxy.eu/?tool_id=Filter1&amp;version=Filter1">open tool</a>) on the bedGraph, <em>"With following condition"</em>: <code>c4==0</code></li>
-<li><strong>bedtools MergeBED</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fbedtools%2Fbedtools_mergebed%2F2.31.1%2Bgalaxy2&amp;version=2.31.1%2Bgalaxy2">open tool</a>) on the Filter output, <em>"Maximum distance between features allowed for features to be merged"</em>: <code>100</code></li>
-<li><strong>Filter</strong> (<a href="https://usegalaxy.eu/?tool_id=Filter1&amp;version=Filter1">open tool</a>) on the MergeBED output, <em>"With following condition"</em>: <code>c3-c2&gt;=1000</code>. Rename the output to <code>zero_coverage_regions.bed</code>.</li>
+<li><strong>Filter</strong> (<a href="https://usegalaxy.eu/?tool_id=Filter1&amp;version=Filter1" target="_blank" rel="noopener noreferrer">open tool</a>) on the bedGraph, <em>"With following condition"</em>: <code>c4==0</code></li>
+<li><strong>bedtools MergeBED</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fbedtools%2Fbedtools_mergebed%2F2.31.1%2Bgalaxy2&amp;version=2.31.1%2Bgalaxy2" target="_blank" rel="noopener noreferrer">open tool</a>) on the Filter output, <em>"Maximum distance between features allowed for features to be merged"</em>: <code>100</code></li>
+<li><strong>Filter</strong> (<a href="https://usegalaxy.eu/?tool_id=Filter1&amp;version=Filter1" target="_blank" rel="noopener noreferrer">open tool</a>) on the MergeBED output, <em>"With following condition"</em>: <code>c3-c2&gt;=1000</code>. Rename the output to <code>zero_coverage_regions.bed</code>.</li>
 <li>
 <ul>
 <li><em>"File A to intersect with B"</em>: <code>PAO1_genes.bed</code></li>
@@ -1322,11 +1322,11 @@ depth ≈ total sequenced bases / genome size.</p>
 <li><em>"Required overlap"</em>: <code>Specify minimum overlap(s)</code>, <em>"Minimum overlap required as a fraction of A"</em>: <code>0.9</code></li>
 <li><em>"Write the original A entry <em>once</em> if <em>any</em> overlaps found in B."</em>: <code>Yes</code></li>
 </ul>
-<p><strong>bedtools Intersect intervals</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fbedtools%2Fbedtools_intersectbed%2F2.31.1%2Bgalaxy1&amp;version=2.31.1%2Bgalaxy1">open tool</a>):</p>
+<p><strong>bedtools Intersect intervals</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fbedtools%2Fbedtools_intersectbed%2F2.31.1%2Bgalaxy1&amp;version=2.31.1%2Bgalaxy1" target="_blank" rel="noopener noreferrer">open tool</a>):</p>
 <p>Rename the output to <code>genes_without_reads.bed</code>.</p>
 </li>
 <li>
-<p><strong>Compute</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Fcolumn_maker%2FAdd_a_column1%2F2.1%2Bgalaxy0&amp;version=2.1%2Bgalaxy0">open tool</a>) on <code>zero_coverage_regions.bed</code>:</p>
+<p><strong>Compute</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Fcolumn_maker%2FAdd_a_column1%2F2.1%2Bgalaxy0&amp;version=2.1%2Bgalaxy0" target="_blank" rel="noopener noreferrer">open tool</a>) on <code>zero_coverage_regions.bed</code>:</p>
 <ul>
 <li><strong>Expressions</strong>: <em>"Add expression"</em>: <code>c3-c2</code></li>
 <li><em>"Mode of the operation"</em>: <code>Append</code></li>
@@ -1352,7 +1352,7 @@ depth ≈ total sequenced bases / genome size.</p>
 <div class="admonition question">
 <p class="admonition-title">Questions</p>
 <p><strong>Q6.</strong> Find the largest region without reads in <code>zero_coverage_regions_interval.bed</code> (the longest interval in column 4). Which genes from <code>genes_without_reads.bed</code> are located inside this region?</p>
-<p><strong>Q7.</strong> Look up three of these genes on <a href="https://www.pseudomonas.com">pseudomonas.com</a>. What kind of genes are they?</p>
+<p><strong>Q7.</strong> Look up three of these genes on <a href="https://www.pseudomonas.com" target="_blank" rel="noopener noreferrer">pseudomonas.com</a>. What kind of genes are they?</p>
 <p><strong>Q8.</strong> Why do we demand zero coverage over 1 kb rather than, say, a depth below 2 over 50 bp? What would go wrong with the lenient rule?</p>
 </div>
 <h3 id="step-5-find-mutations-with-snippy-haploid-variant-calling">Step 5: Find mutations with Snippy (haploid variant calling)<a class="headerlink" href="#step-5-find-mutations-with-snippy-haploid-variant-calling" title="Permanent link">&para;</a></h3>
@@ -1367,7 +1367,7 @@ depth ≈ total sequenced bases / genome size.</p>
 <div class="admonition example">
 <p class="admonition-title">Hands-on: Run Snippy twice (each takes about a minute)</p>
 <ol>
-<li><strong>snippy</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fsnippy%2Fsnippy%2F4.6.0%2Bgalaxy0&amp;version=4.6.0%2Bgalaxy0">open tool</a>):<ul>
+<li><strong>snippy</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fsnippy%2Fsnippy%2F4.6.0%2Bgalaxy0&amp;version=4.6.0%2Bgalaxy0" target="_blank" rel="noopener noreferrer">open tool</a>):<ul>
 <li><em>"Will you select a reference genome from your history or use a built-in index?"</em>: <code>Use a genome from history and build index</code></li>
 <li><em>"Use the following dataset as the reference sequence"</em>: <code>PAO1.gbk</code></li>
 <li><em>"Input type"</em>: <code>Single end reads</code></li>
@@ -1375,7 +1375,7 @@ depth ≈ total sequenced bases / genome size.</p>
 <li><em>"Output selection"</em>: keep the ticked outputs, and also tick <code>A summary of the samples and mapping</code></li>
 </ul>
 </li>
-<li>Run <strong>snippy</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fsnippy%2Fsnippy%2F4.6.0%2Bgalaxy0&amp;version=4.6.0%2Bgalaxy0">open tool</a>) again with the same settings, but open <strong>Advanced parameters</strong> and set <em>"Minimum coverage"</em>: <code>5</code>.</li>
+<li>Run <strong>snippy</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fsnippy%2Fsnippy%2F4.6.0%2Bgalaxy0&amp;version=4.6.0%2Bgalaxy0" target="_blank" rel="noopener noreferrer">open tool</a>) again with the same settings, but open <strong>Advanced parameters</strong> and set <em>"Minimum coverage"</em>: <code>5</code>.</li>
 <li>Rename the outputs of the second run so that you can tell them apart, for example <code>snippy mincov5 snps table</code> and <code>snippy mincov5 snps vcf</code>.</li>
 </ol>
 </div>
@@ -1394,7 +1394,7 @@ depth ≈ total sequenced bases / genome size.</p>
 <div class="admonition example">
 <p class="admonition-title">Hands-on: Build a JBrowse2 view (takes a minute or two)</p>
 <ol>
-<li><strong>JBrowse2</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Ffubar%2Fjbrowse2%2Fjbrowse2%2F3.7.0%2Bgalaxy1&amp;version=3.7.0%2Bgalaxy1">open tool</a>):<ul>
+<li><strong>JBrowse2</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Ffubar%2Fjbrowse2%2Fjbrowse2%2F3.7.0%2Bgalaxy1&amp;version=3.7.0%2Bgalaxy1" target="_blank" rel="noopener noreferrer">open tool</a>):<ul>
 <li>Under <strong>Genome Assembly</strong>: <em>"Reference genome to display"</em>: <code>Use a genome from history</code>, <em>"Select the reference genome"</em>: <code>PAO1.fasta</code></li>
 <li>Under <strong>Track Category</strong>: click <strong>Insert Track Category</strong> if no category is shown, then add three tracks with <strong>Insert Track</strong>:</li>
 <li><em>"Track Type"</em>: <code>BAM Pileups</code>, <em>"BAM Track Data"</em>: <code>Pa_vs_PAO1.bam</code></li>
@@ -1459,7 +1459,7 @@ depth ≈ total sequenced bases / genome size.</p>
 <div class="admonition example">
 <p class="admonition-title">Hands-on: Map the read pairs (takes a few minutes)</p>
 <ol>
-<li><strong>Map with BWA-MEM</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Fbwa%2Fbwa_mem%2F0.7.19%2Bgalaxy1&amp;version=0.7.19%2Bgalaxy1">open tool</a>):<ul>
+<li><strong>Map with BWA-MEM</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Fbwa%2Fbwa_mem%2F0.7.19%2Bgalaxy1&amp;version=0.7.19%2Bgalaxy1" target="_blank" rel="noopener noreferrer">open tool</a>):<ul>
 <li><em>"Will you select a reference genome from your history or use a built-in index?"</em>: <code>Use a built-in genome index</code></li>
 <li><em>"Using reference genome"</em>: <code>Human Dec. 2013 (GRCh38/hg38) (hg38)</code> (type <code>hg38</code> in the box to find it)</li>
 <li><em>"Single or Paired-end reads"</em>: <code>Paired Collection</code></li>
@@ -1477,10 +1477,10 @@ depth ≈ total sequenced bases / genome size.</p>
 <div class="admonition example">
 <p class="admonition-title">Hands-on: Statistics, duplicates and depth (each takes about a minute)</p>
 <ol>
-<li><strong>Samtools flagstat</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Fsamtools_flagstat%2Fsamtools_flagstat%2F2.0.8&amp;version=2.0.8">open tool</a>) on <code>HG00418.bam</code>.</li>
-<li><strong>Samtools idxstats</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Fsamtools_idxstats%2Fsamtools_idxstats%2F2.0.8&amp;version=2.0.8">open tool</a>) on <code>HG00418.bam</code>. The output lists, per reference sequence, its length (column 2) and the number of mapped reads (column 3).</li>
-<li><strong>MarkDuplicates</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Fpicard%2Fpicard_MarkDuplicates%2F3.1.1.0&amp;version=3.1.1.0">open tool</a>) with <em>"Select SAM/BAM dataset or dataset collection"</em>: <code>HG00418.bam</code> (keep the defaults: duplicates are flagged, not removed). Rename the BAM output to <code>HG00418.md.bam</code>.</li>
-<li><strong>Samtools coverage</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fsamtools_coverage%2Fsamtools_coverage%2F1.22%2Bgalaxy3&amp;version=1.22%2Bgalaxy3">open tool</a>) with <em>"BAM file"</em>: <code>HG00418.md.bam</code>, and under <strong>Additional Options</strong> <em>"Show specified region"</em>: <code>chr21</code>.</li>
+<li><strong>Samtools flagstat</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Fsamtools_flagstat%2Fsamtools_flagstat%2F2.0.8&amp;version=2.0.8" target="_blank" rel="noopener noreferrer">open tool</a>) on <code>HG00418.bam</code>.</li>
+<li><strong>Samtools idxstats</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Fsamtools_idxstats%2Fsamtools_idxstats%2F2.0.8&amp;version=2.0.8" target="_blank" rel="noopener noreferrer">open tool</a>) on <code>HG00418.bam</code>. The output lists, per reference sequence, its length (column 2) and the number of mapped reads (column 3).</li>
+<li><strong>MarkDuplicates</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fdevteam%2Fpicard%2Fpicard_MarkDuplicates%2F3.1.1.0&amp;version=3.1.1.0" target="_blank" rel="noopener noreferrer">open tool</a>) with <em>"Select SAM/BAM dataset or dataset collection"</em>: <code>HG00418.bam</code> (keep the defaults: duplicates are flagged, not removed). Rename the BAM output to <code>HG00418.md.bam</code>.</li>
+<li><strong>Samtools coverage</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fsamtools_coverage%2Fsamtools_coverage%2F1.22%2Bgalaxy3&amp;version=1.22%2Bgalaxy3" target="_blank" rel="noopener noreferrer">open tool</a>) with <em>"BAM file"</em>: <code>HG00418.md.bam</code>, and under <strong>Additional Options</strong> <em>"Show specified region"</em>: <code>chr21</code>.</li>
 </ol>
 </div>
 <div class="admonition question">
@@ -1498,7 +1498,7 @@ depth ≈ total sequenced bases / genome size.</p>
 <div class="admonition example">
 <p class="admonition-title">Hands-on: Pileup and call (takes a few minutes)</p>
 <ol>
-<li><strong>bcftools mpileup</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fbcftools_mpileup%2Fbcftools_mpileup%2F1.24%2Bgalaxy0&amp;version=1.24%2Bgalaxy0">open tool</a>):<ul>
+<li><strong>bcftools mpileup</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fbcftools_mpileup%2Fbcftools_mpileup%2F1.24%2Bgalaxy0&amp;version=1.24%2Bgalaxy0" target="_blank" rel="noopener noreferrer">open tool</a>):<ul>
 <li><em>"Alignment Inputs"</em>: <code>Single BAM/CRAM</code>, <em>"Input BAM/CRAM"</em>: <code>HG00418.md.bam</code></li>
 <li><em>"Choose the source for the reference genome"</em>: <code>Locally cached</code>, <em>"Select reference genome"</em>: <code>Human Dec. 2013 (GRCh38/hg38) (hg38)</code></li>
 <li><strong>Input Filtering Options</strong>: <em>"Quality Options"</em>: <code>Set base and mapping quality options</code></li>
@@ -1509,7 +1509,7 @@ depth ≈ total sequenced bases / genome size.</p>
 <li><em>"output_type"</em> (the last field, just above <strong>Additional Options</strong>; it has no other label): <code>uncompressed VCF</code> instead of the default <code>compressed BCF</code></li>
 </ul>
 </li>
-<li><strong>bcftools call</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fbcftools_call%2Fbcftools_call%2F1.24%2Bgalaxy0&amp;version=1.24%2Bgalaxy0">open tool</a>) on the mpileup output:<ul>
+<li><strong>bcftools call</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fbcftools_call%2Fbcftools_call%2F1.24%2Bgalaxy0&amp;version=1.24%2Bgalaxy0" target="_blank" rel="noopener noreferrer">open tool</a>) on the mpileup output:<ul>
 <li><strong>Consensus/variant calling Options</strong>: <em>"Calling method"</em>: <code>Multiallelic and rare-variant caller</code></li>
 <li><strong>Input/output Options</strong>: <em>"Output variant sites only"</em>: <code>Yes</code></li>
 <li><em>"output_type"</em> (the last field): <code>uncompressed VCF</code></li>
@@ -1540,11 +1540,11 @@ chr21 10414881 . C T 124 . DP=9;... GT:PL:DP:AD 0/1:157,0,98:9:4,5
 <li><strong>Restrict to</strong>: <em>"Include"</em>: <code>QUAL&gt;=20 &amp;&amp; INFO/DP&gt;=3 &amp;&amp; INFO/DP&lt;=15</code></li>
 <li><em>"output_type"</em> (the last field): <code>uncompressed VCF</code></li>
 </ul>
-<p><strong>bcftools filter</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fbcftools_filter%2Fbcftools_filter%2F1.24%2Bgalaxy0&amp;version=1.24%2Bgalaxy0">open tool</a>) on <code>HG00418.chr21.raw.vcf</code>:</p>
+<p><strong>bcftools filter</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fbcftools_filter%2Fbcftools_filter%2F1.24%2Bgalaxy0&amp;version=1.24%2Bgalaxy0" target="_blank" rel="noopener noreferrer">open tool</a>) on <code>HG00418.chr21.raw.vcf</code>:</p>
 <p>Rename the output to <code>HG00418.chr21.filtered.vcf</code>.</p>
 </li>
 <li>
-<p><strong>bcftools stats</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fbcftools_stats%2Fbcftools_stats%2F1.24%2Bgalaxy0&amp;version=1.24%2Bgalaxy0">open tool</a>) on the raw VCF, with <strong>Restrict to</strong> <em>"Samples"</em>: <code>HG00418</code> (this adds the per-sample section <code>PSC</code>).</p>
+<p><strong>bcftools stats</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Fiuc%2Fbcftools_stats%2Fbcftools_stats%2F1.24%2Bgalaxy0&amp;version=1.24%2Bgalaxy0" target="_blank" rel="noopener noreferrer">open tool</a>) on the raw VCF, with <strong>Restrict to</strong> <em>"Samples"</em>: <code>HG00418</code> (this adds the per-sample section <code>PSC</code>).</p>
 </li>
 <li>The same for the filtered VCF.</li>
 </ol>
@@ -1560,7 +1560,7 @@ chr21 10414881 . C T 124 . DP=9;... GT:PL:DP:AD 0/1:157,0,98:9:4,5
 <div class="admonition example">
 <p class="admonition-title">Hands-on: Build a JBrowse2 view of chr21 (takes a few minutes)</p>
 <ol>
-<li><strong>JBrowse2</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Ffubar%2Fjbrowse2%2Fjbrowse2%2F3.7.0%2Bgalaxy1&amp;version=3.7.0%2Bgalaxy1">open tool</a>):<ul>
+<li><strong>JBrowse2</strong> (<a href="https://usegalaxy.eu/?tool_id=toolshed.g2.bx.psu.edu%2Frepos%2Ffubar%2Fjbrowse2%2Fjbrowse2%2F3.7.0%2Bgalaxy1&amp;version=3.7.0%2Bgalaxy1" target="_blank" rel="noopener noreferrer">open tool</a>):<ul>
 <li><em>"Reference genome to display"</em>: <code>Use a built-in genome</code>, <em>"Select a reference genome"</em>: <code>Human Dec. 2013 (GRCh38/hg38) (hg38)</code></li>
 <li>One <strong>Track Category</strong> with three tracks:</li>
 <li><code>BAM Pileups</code>: <code>HG00418.md.bam</code></li>
