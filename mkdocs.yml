@@ -57,6 +57,7 @@ extra_css:
 
 hooks:
   - hooks/datasets_table.py
+  - hooks/external_links.py
 
 markdown_extensions:
   - admonition
