@@ -40,6 +40,16 @@ The slides for this practical are on the Lectures page.
 
 ### Get the data
 
+!!! tip "Tip: Haven't finished the NGS preprocessing practical?"
+
+    If you haven't completed the preprocessing practical, you can use these prepared Illumina reads instead.
+
+    [Import prepared Illumina reads into Galaxy](https://usegalaxy.eu/u/bentpetersen/h/kp-molecular-genetic-data-prepared-illumina-reads)
+
+    Open the link and click **Import this history**. The copy holds `Paeruginosa.cut.trim` and the paired collection `HG00418_trimmed`, with the names used below. The reference files (`PAO1.fasta`, `PAO1.gbk`, `PAO1_genes.bed`) are not in it: they come with the data history in the next step.
+
+    If you have already completed preprocessing, continue using your own cleaned reads.
+
 !!! example "Hands-on: Import the data history"
 
     1. Open the [shared data history](https://usegalaxy.eu/u/bentpetersen/h/kp-read-mapping-and-variant-calling-data) and click **Import this history**. Give the copy the name `Read mapping practical`.
