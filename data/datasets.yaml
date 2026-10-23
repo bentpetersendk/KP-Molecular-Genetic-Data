@@ -98,6 +98,8 @@ datasets:
   exercise: exercises/read-mapping-variant-calling/index.md
   # Shared Galaxy Europe history containing exactly these files and the HG00418_trimmed paired collection.
   galaxy_history_url: "https://usegalaxy.eu/u/bentpetersen/h/kp-read-mapping-and-variant-calling-data"
+  # Optional history with only the cleaned reads (Paeruginosa.cut.trim and the HG00418_trimmed paired collection).
+  prepared_reads_history_url: "https://usegalaxy.eu/u/bentpetersen/h/kp-molecular-genetic-data-prepared-illumina-reads"
   archive_url: ""
   redistribution: >-
     P. aeruginosa reads: public ENA data, run ERR706017 (Andersen et al. 2015, PNAS 112:10756),

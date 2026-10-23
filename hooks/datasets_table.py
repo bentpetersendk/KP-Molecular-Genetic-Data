@@ -47,6 +47,9 @@ def _render(ds: dict, page_url_depth: int) -> str:
                    f"It already contains every file with the correct datatype{extra}.")
     else:
         out.append("- **Recommended:** a shared Galaxy history with all files will be linked here before the course.")
+    if ds.get("prepared_reads_history_url"):
+        out.append(f"- **Optional, if you have not finished the NGS preprocessing practical:** import the prepared Illumina reads "
+                   f"(only the cleaned reads, the same as the preprocessing practical produces): <{ds['prepared_reads_history_url']}>.")
     if ds.get("archive_url"):
         out.append(f"- Archived copy: <{ds['archive_url']}>")
     if any(f.get("download_url") for f in ds["files"]):
